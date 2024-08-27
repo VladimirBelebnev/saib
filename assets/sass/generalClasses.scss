@@ -1,0 +1,157 @@
+// General Classes
+
+.container {
+    width: 100%;
+    max-width: calc($containerWidth + $containerPadding * 2);
+    padding: 0 $containerPadding;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+// Input Classes
+
+.input {
+    width: 17.5rem;
+    height: 3.25rem;
+    display: flex;
+    position: relative;
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        padding: 0.875rem 3.55rem 0.875rem 1.25rem;
+        background: $white;
+        box-shadow: 0 6px 10px 0 rgba(115, 146, 193, 0.05);
+        border-radius: 0.75rem;
+        font-weight: $medium;
+        line-height: 150%;
+        font-size: 1rem;
+        outline: 1px solid $white;
+        transition: .5s;
+
+        &::placeholder {
+            color: $gray5;
+        }
+
+        &:hover,
+        &:focus {
+            outline: 1px solid $primaryColor;
+        }
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        right: 1.25rem;
+        transform: translate(0, -50%);
+    }
+}
+
+// User Classes
+
+.user {
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 0;
+    max-width: 21.75rem;
+    width: 21.75rem;
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.75rem;
+    background: $white;
+    z-index: 1;
+    box-shadow: 0 8px 15px 0 rgba(90, 121, 167, 0.12);
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+
+    &__profile {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-bottom: 1.25rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $gray2;
+    }
+
+    &__avatar {
+        padding: 0.125rem;
+        border: 2px solid $primaryColor;
+        border-radius: 50%;
+    }
+
+    &__name {
+        font-weight: $bold;
+        line-height: 125%;
+    }
+
+    &__managment-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__managment-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: $medium;
+        font-size: 1rem;
+        line-height: 125%;
+        color: $gray3;
+        transition: .5s;
+
+        svg {
+            transition: .5s;
+        }
+
+        &:hover {
+            color: $primaryColor;
+            opacity: 1;
+
+            svg {
+                fill: $primaryColor;
+            }
+        }
+    }
+}
+
+// Logo Classes
+
+.logo {
+    display: block;
+    width: 7.62rem;
+    height: 3rem;
+    background-image: url("../images/logo.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+// Media Queries
+
+@media all and (max-width: 600px) {
+
+    .container {
+        max-width: calc($containerWidth + $containerPaddingMobile * 2);
+        padding: 0 $containerPaddingMobile;
+    }
+
+}
+
+@media all and (max-width: 430px) {
+
+    .user {
+        max-width: 18rem;
+        width: 18rem;
+    }
+
+}
