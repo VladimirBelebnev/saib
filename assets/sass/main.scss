@@ -18,8 +18,14 @@
 
 @import "generalClasses.scss";
 
+// Modal Windows Classes Files
+
+@import "modal.scss";
+
 // Sections Files
 
+@import "sections/header.scss";
 @import "sections/navbar.scss";
 @import "sections/statistic.scss";
 @import "sections/latest.scss";
+@import "sections/company.scss";

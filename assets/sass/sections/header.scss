@@ -1,0 +1,78 @@
+// Header Styles
+
+.header {
+    margin-bottom: 1rem;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        font-weight: $bold;
+        font-size: 2rem;
+        line-height: 130%;
+        color: $gray1;
+    }
+
+    &__right-section,
+    &__left-section {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+    }
+
+    &__right-section {
+        flex-wrap: nowrap;
+    }
+
+    &__user-img {
+        padding: 0.125rem;
+        border: 2px solid $primaryColor;
+        border-radius: 50%;
+    }
+
+    &__user {
+        position: relative;
+
+        &:hover {
+
+            .user {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__mobile-btn {
+        display: none;
+    }
+
+}
+
+// Media Queries
+
+@media all and (max-width: 991px) {
+
+    .header {
+        
+        &__mobile-btn {
+            display: inline-block;
+        }
+
+    }
+
+}
+
+@media all and (max-width: 430px) {
+
+    .user {
+        max-width: 18rem;
+        width: 18rem;
+    }
+
+}
