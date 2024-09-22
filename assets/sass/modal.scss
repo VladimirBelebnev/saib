@@ -2,7 +2,8 @@
 
 // Modal ( General Class )
 
-.modal {
+.modal,
+.new-group {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -15,6 +16,21 @@
     padding: 1rem 2.875rem;
     z-index: 1000;
 
+    ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background-color: none;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+    }
+
     &__wrapper {
         max-width: 31.25rem;
         width: 100%;
@@ -26,6 +42,20 @@
         padding: 2.5rem;
         box-shadow: 0 8px 15px 0 rgba(115, 146, 193, 0.05);
         position: relative;
+
+        ::-webkit-scrollbar {
+            height: 1rem;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background-color: $white;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 100px $primaryColor;
+            border: 2px solid $white;
+            border-radius: 20px;
+        }
     }
 
     &__img {
@@ -84,6 +114,32 @@
         line-height: 130%;
         margin-bottom: 1.75rem;
         padding-right: 1.5rem;
+
+        &_min-margin {
+            margin-bottom: 1rem;
+        }
+
+        &_big {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        margin-bottom: 1.75rem;
+        font-weight: $bold;
+        font-size: 1.25rem;
+        line-height: 130%;
+        color: $gray3;
+    }
+
+    &__subtitle-2 {
+        font-weight: $medium;
+        line-height: 125%;
+
+        &_orange {
+            color: $primaryColor;
+            font-weight: $bold;
+        }
     }
 
     &__inputs-wrapper {
@@ -126,6 +182,16 @@
     .input {
         width: 100%;
         max-width: 100%;
+        transition: .5s;
+
+        &::placeholder {
+            color: $gray5;
+        }
+
+        &:hover,
+        &:focus {
+            outline: 1px solid $primaryColor;
+        }
     }
 
     &__company-input {
@@ -157,6 +223,56 @@
         display: inline-flex;
         justify-content: center;
         align-items: center;
+    }
+
+    &__text-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.625rem;
+    }
+
+    &__message {
+        width: calc(100% - 1rem);
+        border-radius: 0.75rem;
+        padding: 0.8125rem 0.5rem;
+        background: $red2;
+        margin: 0 0.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.625rem;
+        margin-bottom: 1.75rem;
+    }
+
+    &__message-text {
+        font-size: 0.88rem;
+        line-height: 171%;
+        text-align: center;
+        color: $red1;
+    }
+}
+
+.new-group {
+
+    &__wrapper {
+        max-width: 72.56rem;
+        width: 100%;
+    }
+
+    &__name {
+        margin-bottom: 1.75rem;
+
+        .input {
+            max-width: 27.88rem;
+        }
+    }
+
+    &__buttons-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        margin-top: 1.75rem;
     }
 }
 
@@ -202,6 +318,36 @@
     }
 }
 
+// Active Directory
+
+.active-directory {
+
+    &__wrapper {
+        max-width: 62.88rem;
+    }
+}
+
+// Upload
+
+.upload {
+
+    &__wrapper {
+        max-width: 41.25rem;
+    }
+
+    &__label {
+        margin-bottom: 1.75rem;
+    }
+
+    &__buttons-wrapper {
+        margin-top: 1.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.25rem;
+    }
+}
+
 // Statistic Filter
 
 .statistic-filter {
@@ -220,17 +366,49 @@
         font-weight: $medium;
         line-height: 75%;
         padding-left: 1.25rem;
+
+        &_orange {
+            font-weight: $medium;
+            font-size: 1.12rem;
+            line-height: 67%;
+            color: $red1;
+        }
     }
 
     &__input {
-        border: 1px solid $gray2;
+        outline: 1px solid $gray2;
         border-radius: 0.75rem;
         padding: 0.88rem 1.25rem;
+        transition: .5s;
+
+        &::placeholder {
+            color: $gray5;
+        }
+
+        &:hover,
+        &:focus {
+            outline: 1px solid $primaryColor;
+        }
 
         &_date {
             width: 100%;
             appearance: none;
         }
+
+        &_with-btn {
+            padding-right: 3.5rem;
+        }
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__toggle-pass {
+        position: absolute;
+        right: 1.25rem;
+        top: 50%;
+        transform: translate(0, -50%);
     }
 }
 
@@ -270,6 +448,48 @@
         font-size: 1rem;
         font-weight: $medium;
         line-height: 150%;
+    }
+}
+
+.upload-field {
+    width: 100%;
+    transition: .5s;
+
+    &__input {
+        display: none;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        padding: 1.25rem;
+        border: 2px dashed $gray2;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        gap: 0.75rem;
+
+        &_uploaded {
+            border: 2px dashed $primaryColor;
+        }
+    }
+
+    &__text {
+        font-weight: $medium;
+        font-size: 1rem;
+        line-height: 125%;
+
+        &_orange {
+            font-weight: $bold;
+            color: $primaryColor;
+        }
+    }
+
+    &:hover {
+        opacity: 0.5;
     }
 }
 

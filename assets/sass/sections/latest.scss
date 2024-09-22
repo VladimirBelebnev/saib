@@ -348,6 +348,145 @@
         gap: 0.5rem;
     }
 
+    &__edit-input {
+        width: 100%;
+        border-bottom: 1px solid $gray2;
+        font-size: 0.88rem;
+        line-height: 171%;
+        background: none;
+    }
+
+}
+
+.group-table {
+
+    &__grey-btn {
+        @include btn($gray1, $white);
+        gap: 0.5rem;
+
+        svg {
+            min-width: 0.875rem;
+        }
+    }
+
+    &__header-left-section {
+        gap: 1rem;
+        align-items: center;
+    }
+
+    &__header-right-section {
+        margin-bottom: 0;
+        flex-wrap: wrap;
+    }
+
+    &__download {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: $medium;
+        font-size: 0.88rem;
+        line-height: 171%;
+    }
+
+    &__content {
+        border: 1px solid $gray2;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+    }
+
+    &__message {
+        width: calc(100% - 1rem);
+        border-radius: 0.75rem;
+        padding: 0.8125rem 0.5rem;
+        background: $red2;
+        margin: 0 0.5rem;
+    }
+
+    &__message-text {
+        font-size: 0.88rem;
+        line-height: 171%;
+        text-align: center;
+        color: $red1;
+    }
+
+    &__add-employee {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        font-size: 0.88rem;
+        line-height: 171%;
+        margin-top: 0.8125rem;
+        margin: 0.8125rem 0.5rem 0;
+    }
+
+    &__articles-count-input {
+        border: 1px solid $gray2;
+        border-radius: 0.75rem;
+        font-weight: $medium;
+        font-size: 1rem;
+        line-height: 150%;
+        box-shadow: none;
+    }
+
+    &__search-input-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    &__search-input {
+        font-weight: $medium;
+        font-size: 1rem;
+        line-height: 150%;
+        border: 1px solid $gray2;
+        border-radius: 0.75rem;
+        padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+        max-width: 14rem;
+        height: auto;
+    }
+
+    &__search-btn {
+        position: absolute;
+        top: 50%;
+        right: 0.5rem;
+        transform: translate(0, calc(-50% + 0.1rem));
+    }
+
+    &__footer {
+        padding: 0 0.5rem;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+
+        & tr:not(:last-child) {
+            border-bottom: 1px solid $gray2;
+        }
+
+        thead tr th {
+            border-bottom: 1px solid $gray2;
+            padding-bottom: 1.25rem;
+        }
+
+        td:first-child,
+        th:first-child {
+            padding-left: 1rem;
+        }
+    }
+
+    &__import-buttons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    &__two-columns-row {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
 }
 
 .checkbox {

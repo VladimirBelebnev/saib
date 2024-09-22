@@ -159,6 +159,7 @@ const currentWidth = document.documentElement.offsetWidth;
 // Modal Variables
 
 const modalButtons = document.querySelectorAll("button[data-modal], a[data-modal]");
+const modals = document.querySelectorAll(".modal");
 
 // Search Element List Variables
 
@@ -166,6 +167,10 @@ const searchElements = document.querySelectorAll(".search-element__btn");
 const searchElementWrapper = document.querySelector(".modal__company-input");
 const elementsDeleteButtons = document.querySelectorAll(".modal__company > .modal__company-delete");
 const searchInput = document.querySelector(".search-element__input");
+
+// Toggle Password Variables
+
+const togglePassButtons = document.querySelectorAll(".input-group__toggle-pass");
 
 // Start Values
 
@@ -258,21 +263,21 @@ function search(currentValue, elements) {
 
 // Event Listeners
 
-modalButtons.forEach(btn => {
+modalButtons?.forEach(btn => {
     btn.addEventListener("click", (event) => {
         openModal(event.currentTarget);
         event.preventDefault();
     });
 });
 
-searchElements.forEach(element => {
+searchElements?.forEach(element => {
     element.addEventListener("click", (event) => {
         addElement(searchElementWrapper, event.currentTarget.textContent);
         event.preventDefault();
     });
 });
 
-elementsDeleteButtons.forEach(element => {
+elementsDeleteButtons?.forEach(element => {
     element.addEventListener("click", (event) => {
         const currentElement = event.currentTarget.closest(".modal__company");
 
@@ -281,6 +286,28 @@ elementsDeleteButtons.forEach(element => {
     });
 });
 
-searchInput.addEventListener("input", (event) => {
+searchInput?.addEventListener("input", (event) => {
     search(event.currentTarget.value, searchElements);
+});
+
+modals?.forEach(modal => {
+    modal.addEventListener("click", (event) => {
+        if (event.currentTarget == event.target) {
+            closeAllModals();
+        }
+    });
+});
+
+togglePassButtons?.forEach(btn => {
+    btn.addEventListener("click", (event) => {
+        const input = event.currentTarget.previousElementSibling;
+
+        if (input.type == "text") {
+            input.type = "password";
+        }   else {
+            input.type = "text";
+        }
+
+        event.preventDefault();
+    });
 });
