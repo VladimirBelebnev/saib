@@ -147,6 +147,22 @@ if (ctx1) {
     });
 }
 
+// No UI Slider
+
+const soundRange = document.querySelector(".video__sound-range");
+
+if (soundRange) {
+    noUiSlider.create(soundRange, {
+        start: 127,
+        connect: [false, true],
+        orientation: "vertical",
+        range: {
+            'min': 0,
+            'max': 100
+        },
+    });
+}
+
 // Main JS
 
 // Variables
@@ -164,13 +180,32 @@ const modals = document.querySelectorAll(".modal");
 // Search Element List Variables
 
 const searchElements = document.querySelectorAll(".search-element__btn");
-const searchElementWrapper = document.querySelector(".modal__company-input");
+const searchElementWrapper = document.querySelectorAll(".modal__company-input");
 const elementsDeleteButtons = document.querySelectorAll(".modal__company > .modal__company-delete");
-const searchInput = document.querySelector(".search-element__input");
+const searchInput = document.querySelectorAll(".search-element__input");
 
 // Toggle Password Variables
 
 const togglePassButtons = document.querySelectorAll(".input-group__toggle-pass");
+
+// Calendare Variables
+
+const calendareNextBtn = document.querySelector(".calendare__next-btn");
+const calendarePrevBtn = document.querySelector(".calendare__prev-btn");
+const currentDate = document.querySelector(".calendare__current-month");
+const saveDiapasonBtn = document.querySelector(".calendare__cancel-btn");
+const selectDiapasonButtons = document.querySelectorAll(".calendare .drop-down__btn");
+let cellsSingle;
+
+let currentMonth = currentDate?.getAttribute("data-date").split(".")[1];
+let currentYear = currentDate?.getAttribute("data-date").split(".")[0];
+
+let currentDiapason = 7;
+let isDiapason;
+
+// Diapason Variables
+
+const checkboxes = document.querySelectorAll(".checkbox-quadro__input");
 
 // Start Values
 
@@ -261,7 +296,260 @@ function search(currentValue, elements) {
     }
 }
 
+// Calendare Methods
+
+function getDay(date) {
+    let trueDate = date.getDay();
+
+    if (trueDate == 0) {
+        trueDate = 7;
+    }
+
+    return trueDate - 1;
+}
+
+function generateMonth(tbody, year, month) {
+    let trueMonth = month - 1;
+    let date = new Date(year, trueMonth);
+    let table = document.querySelector(tbody);
+    let tableBody = "";
+    let previousMonthDate = new Date(year, trueMonth - 1);
+    let lastDayPrevMonth = 0;
+    let tableParent = table.closest(".calendare");
+    isDiapason = !!(tableParent.getAttribute("data-is-diapason"));
+
+    table.innerHTML = "";
+
+    tableBody += "<tr class='calendare__table-row'>";
+
+    while (previousMonthDate.getMonth() == trueMonth - 1) {
+        lastDayPrevMonth += 1;
+        previousMonthDate.setDate(previousMonthDate.getDate() + 1);
+    }
+
+    for (let i = 0; i < getDay(date); i++) {
+        let startDate = lastDayPrevMonth - (getDay(date) - 1);
+
+        tableBody += `<td class="calendare__cell calendare__cell_out-month" data-date="${currentYear}.${currentMonth - 1}.${startDate + i}">
+            ${startDate + i}
+        </td>`;
+    }
+
+    while (date.getMonth() == trueMonth) {
+        tableBody += `<td class="calendare__cell" data-date="${currentYear}.${currentMonth}.${date.getDate()}">
+            ${date.getDate()}
+        </td>`;
+
+        if (getDay(date) == 6) {
+            tableBody += `</tr><tr class='calendare__table-row'>`;
+        }
+
+        date.setDate(date.getDate() + 1);
+    }
+
+    if (getDay(date) != 0) {
+        while (getDay(date) != 0) {
+            tableBody += `<td class="calendare__cell calendare__cell_out-month" data-date="${currentYear}.${currentMonth + 1}.${date.getDate()}">
+                ${date.getDate()}
+            </td>`;
+
+            date.setDate(date.getDate() + 1);
+        }
+    }
+
+    table.innerHTML = tableBody;
+    
+    Array.from(table.querySelectorAll(".calendare__cell")).forEach(item => {
+        let itemDateArray = item.getAttribute("data-date").split(".");
+        let itemDate = new Date(itemDateArray[0], itemDateArray[1] - 1, itemDateArray[2]);
+        let currentDate = new Date();
+
+        item.setAttribute("data-order", `${Math.round((((itemDate - currentDate) / 1000) / 3600) / 24) + currentDate.getDate() + 1}`);
+    });
+
+    if (isDiapason) {
+        interpretateDiapason(currentDiapason);
+
+        let start = new Date();
+        let end = new Date();
+
+        end.setDate((new Date()).getDate() - currentDiapason);
+
+        const currentDateInput = table.closest(".select-input-2").querySelector(".input__select-value");
+
+        currentDateInput.textContent = `${end.getFullYear()}.${end.getMonth()}.${end.getDate() < 10 ? "0" + end.getDate() : end.getDate()} - ${start.getFullYear()}.${start.getMonth()}.${start.getDate() < 10 ? "0" + start.getDate() : start.getDate()}`;
+    }
+
+    cellsSingle = document.querySelectorAll(".calendare__cell:not(.calendare__cell_title)");
+
+    if (!isDiapason) {
+        cellsSingle.forEach(item => {
+                item.addEventListener("click", (event) => {
+                let currentCell = event.currentTarget;
+
+                cellsSingle.forEach(item => item.classList.remove("calendare__cell_active"));
+                currentCell.classList.add("calendare__cell_active");
+            });
+        })
+    }
+}
+
+function toggleDate(direction, dateElem) {
+
+    if (direction == "next") {
+
+        if (currentMonth >= 12) {
+            currentYear++;
+            currentMonth = 1;
+        }   else {
+            currentMonth++;
+        }
+
+        generateMonth(".calendare__table-body", currentYear, currentMonth);
+    }   else {
+
+        if (currentMonth <= 1) {
+            currentYear--;
+            currentMonth = 12;
+        }   else {
+            currentMonth--;
+        }
+
+        generateMonth(".calendare__table-body", currentYear, currentMonth);
+    }
+
+    dateElem.setAttribute("data-date", `${currentYear}.${currentMonth}`);
+    dateElem.textContent = `${translateMonth(currentMonth)} ${currentYear}`;
+}
+
+function translateMonth(month) {
+    switch (month) {
+        case 1:
+            return "Январь"
+            break;
+
+            case 2:
+            return "Февраль"
+            break;
+
+            case 3:
+            return "Март"
+            break;
+
+            case 4:
+            return "Апрель"
+            break;
+
+            case 5:
+            return "Май"
+            break;
+
+            case 6:
+            return "Июнь"
+            break;
+
+            case 7:
+            return "Июль"
+            break;
+
+            case 8:
+            return "Август"
+            break;
+
+            case 9:
+            return "Сентябрь"
+            break;
+
+            case 10:
+            return "Октябрь"
+            break;
+
+            case 11:
+            return "Ноябрь"
+            break;
+
+            case 12:
+            return "Декабрь"
+            break;
+    }
+}
+
+function setDiapasonCalendare(start, end, cells) {
+    Array.from(cells).forEach(cell => {
+        const value = +(cell.getAttribute("data-order"));
+
+        if (value > start && value < end) {
+            cell.classList.add("calendare__cell_active");
+        }   else if (value == start) {
+            cell.classList.add("calendare__cell_active-start");
+        }   else if (value == end) {
+            cell.classList.add("calendare__cell_active-end");
+        }
+    });
+}
+
+function interpretateDiapason(length) {
+    const date = new Date();
+    const cells = Array.from(document.querySelectorAll(".calendare__cell")).filter(item => !(item.classList.contains("calendare__cell_title")));
+
+    setDiapasonCalendare(date.getDate() - length, date.getDate(), cells);
+}
+
+function closeAllDropDowns(elements) {
+    elements.forEach(item => item.classList.add("none"));
+}
+
 // Event Listeners
+
+// Calendare Events
+
+if (currentDate) {
+
+    generateMonth(".calendare__table-body", currentYear, currentMonth);
+
+    calendareNextBtn?.addEventListener("click", (event) => {
+        event.preventDefault();
+        const dateElem = event.currentTarget.closest(".calendare__header").querySelector(".calendare__current-month");
+
+        toggleDate("next", dateElem);
+    });
+
+    calendarePrevBtn?.addEventListener("click", (event) => {
+        event.preventDefault();
+        const dateElem = event.currentTarget.closest(".calendare__header").querySelector(".calendare__current-month");
+
+        toggleDate("prev", dateElem);
+    });
+
+    saveDiapasonBtn?.addEventListener("click", (event) => {
+        const currentBtn = event.currentTarget;
+        const diapasonButtons = currentBtn.closest(".calendare__select-wrapper").querySelectorAll(".drop-down__btn");
+        const diapasonActiveBtnValue = Array.from(diapasonButtons).find(item => item.classList.contains("drop-down__btn_active"))
+                                    .getAttribute("data-diapason");
+        const diapasonInput = currentBtn.closest(".calendare__select-wrapper").querySelector(".select-diapason__input-value");
+
+        if (diapasonInput/*.value*/) {
+            currentDiapason = +diapasonInput.value;
+            generateMonth(".calendare__table-body", currentYear, currentMonth);
+        }   else {
+            currentDiapason = +diapasonActiveBtnValue;
+            generateMonth(".calendare__table-body", currentYear, currentMonth);
+        }
+    });
+
+    selectDiapasonButtons.forEach(item => {
+        item?.addEventListener("click", (event) => {
+            event.preventDefault();
+            const currentBtn = event.currentTarget;
+            const diapasonButtons = currentBtn.closest(".calendare__select-wrapper").querySelectorAll(".drop-down__btn");
+
+            diapasonButtons.forEach(item => item.classList.remove("drop-down__btn_active"));
+
+            currentBtn.classList.add("drop-down__btn_active");
+        });
+    });
+
+}
 
 modalButtons?.forEach(btn => {
     btn.addEventListener("click", (event) => {
@@ -272,8 +560,10 @@ modalButtons?.forEach(btn => {
 
 searchElements?.forEach(element => {
     element.addEventListener("click", (event) => {
-        addElement(searchElementWrapper, event.currentTarget.textContent);
         event.preventDefault();
+        let currentWrapper = event.currentTarget.closest(".modal__input-wrapper").querySelector(".modal__company-input");
+
+        addElement(currentWrapper, event.currentTarget.textContent);
     });
 });
 
@@ -286,8 +576,11 @@ elementsDeleteButtons?.forEach(element => {
     });
 });
 
-searchInput?.addEventListener("input", (event) => {
-    search(event.currentTarget.value, searchElements);
+searchInput?.forEach(item => {
+    item.addEventListener("input", (event) => {
+        event.preventDefault();
+        search(event.currentTarget.value, searchElements);
+    });
 });
 
 modals?.forEach(modal => {
@@ -311,3 +604,42 @@ togglePassButtons?.forEach(btn => {
         event.preventDefault();
     });
 });
+
+// Practice
+
+// var validPath = function(n, edges, source, destination) {
+//     let checked = {};
+//     let graph = {};
+
+//     edges.forEach(elem => {
+//         if (!graph[elem[0]]) {
+//             graph[elem[0]] = [];
+//         }
+        
+//         if (!graph[elem[1]]) {
+//             graph[elem[1]] = [];
+//         }
+//         graph[elem[0]].push(elem[1]);
+//         graph[elem[1]].push(elem[0]);
+//     });
+
+//     let queue = graph[source];
+//     if (!queue) return true;
+ 
+//     while (queue.length) {
+//         let elem = queue.shift();
+
+//         if (checked[elem] != "") {
+//             if (elem === destination) {
+//                 return true;
+//             }   else {
+//                 queue.push(...graph[elem]);
+//                 checked[elem] = "";
+//             }
+//         }
+//     }
+
+//     return false;
+// };
+
+// console.log(validPath(1, [], 0, 0));

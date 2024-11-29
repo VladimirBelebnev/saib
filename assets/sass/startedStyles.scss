@@ -23,6 +23,14 @@ body {
     overflow: hidden;
 }
 
+.wrapper_auth {
+    padding-left: 0 !important;
+}
+
+.wrapper_auth .main {
+    padding: 0;
+}
+
 .main {
     min-height: 100vh;
     padding-top: 2.5rem;

@@ -1,0 +1,28 @@
+// Tabs Styles
+
+.tabs {
+    width: 100%;
+    margin-bottom: 2.5rem;
+
+    &__content {
+        display: flex;
+        background: $white;
+        overflow: hidden;
+        box-shadow: 0 8px 15px 0 rgba(115, 146, 193, 0.05);
+        border-radius: 0.75rem;
+    }
+
+    &__btn {
+        width: 100%;
+        padding: 1.25rem;
+        font-weight: $bold;
+        font-size: 0.94rem;
+        line-height: 130%;
+        color: $gray5;
+
+        &_active {
+            border-bottom: 2px solid $primaryColor;
+            color: $gray1;
+        }
+    }
+}

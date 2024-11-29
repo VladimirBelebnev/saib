@@ -1,0 +1,17 @@
+// Settings Links
+
+.settings-links {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__link {
+        font-weight: $medium;
+        font-size: 1.12rem;
+        line-height: 178%;
+        text-decoration: underline;
+    }
+}

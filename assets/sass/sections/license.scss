@@ -1,0 +1,107 @@
+// License Styles
+
+.license {
+
+    .container {
+
+        & > .license__input-section {
+            max-width: 51.25rem;
+        }
+    }
+
+    &__status {
+        padding: 0.75rem 1.75rem;
+        border-radius: 0.75rem;
+        background: $green2;
+        font-weight: $bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $green1;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    &__detail {
+        padding: 1.25rem 1.75rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 15px 0 rgba(115, 146, 193, 0.05);
+        background: $white;
+        margin-bottom: 1.25rem;
+    }
+
+    &__detail-title {
+        font-weight: $bold;
+        font-size: 1.25rem;
+        line-height: 130%;
+        margin-bottom: 0.5rem;
+    }
+
+    &__list-key {
+        color: $gray3;
+        font-weight: $bold;
+        font-size: 0.88rem;
+        line-height: 171%;
+    }
+
+    &__list-value {
+        color: $gray3;
+        font-weight: $medium;
+        font-size: 0.88rem;
+        line-height: 171%;
+    }
+
+    &__input-section {
+        width: 100%;
+
+        &_two-columns {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            width: 100%;
+
+            .input {
+                width: 100%;
+            }
+        }
+    }
+
+    &__activate-btn {
+        @include btn($gray1, $white);
+        min-width: 14.81rem;
+        padding: 1.1rem;
+        line-height: 125%;
+    }
+}
+
+// Media Queries
+
+@media all and (max-width: 600px) {
+
+    .license {
+
+        &__status {
+            width: 100%;
+            justify-content: center;
+        }
+
+        &__input-section {
+
+            &_two-columns {
+                flex-direction: column;
+            }
+        }
+
+        &__activate-btn {
+            width: 100%;
+        }
+
+        &__list-value {
+            word-break: break-all;
+        }
+    }
+}

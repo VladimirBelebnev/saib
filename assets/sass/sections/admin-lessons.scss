@@ -1,0 +1,47 @@
+// Admin Lessons Styles
+
+.admin-lessons {
+    width: 100%;
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+    }
+
+    &__bottom-row {
+        margin-bottom: 1.75rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    &__selected-count {
+        font-weight: $medium;
+        line-height: 125%;
+    }
+
+    &__select-btn {
+        font-weight: $medium;
+        line-height: 125%;
+        color: $primaryColor;
+    }
+
+    &__btn {
+        @include btn($primaryColor, $white);
+        padding: 1rem 1.5rem;
+        line-height: 125%;
+    }
+}
+
+.admin-lesson {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    box-shadow: 0 6px 10px 0 rgba(115, 146, 193, 0.05);
+    background: $white;
+    border-radius: 0.25rem;
+}

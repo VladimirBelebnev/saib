@@ -1,0 +1,140 @@
+// Letter Styles
+
+.letter {
+    width: 100%;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+    }
+
+    &__input-section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+
+        .input-group {
+            width: 100%;
+        }
+
+        &_row {
+            gap: 1.25rem;
+            flex-direction: row;
+            align-items: center;
+
+            .input-group {
+                width: auto;
+            }
+
+            .letter__notion {
+                top: 0.75rem;
+            }
+        }
+    }
+
+    &__notion {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        position: relative;
+        transition: .5s;
+
+        svg {
+            transition: .5s;
+        }
+
+        &:hover {
+            color: $primaryColor;
+            opacity: 1;
+
+            svg {
+                fill: $primaryColor;
+            }
+        }
+    }
+
+    .input-group {
+
+        &__wrapper {
+            background: $white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 15px 0 rgba(115, 146, 193, 0.05);
+        }
+    }
+
+    &__info-title {
+        font-weight: $bold;
+        line-height: 125%;
+        margin-bottom: 1rem;
+    }
+
+    &__info-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1.75rem;
+    }
+
+    &__info-list-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__info-key {
+        font-weight: $medium;
+        font-size: 0.88rem;
+        line-height: 171%;
+        border: 1px solid $gray2;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.75rem;
+        background: $white;
+    }
+
+    &__info-text {
+        font-weight: $medium;
+        line-height: 125%;
+    }
+
+    &__save-btn {
+        @include btn($primaryColor, $white);
+        line-height: 125%;
+        padding: 1rem 1.5rem;
+    }
+}
+
+// Media Queries
+
+@media all and (max-width: 1000px) {
+
+    .letter {
+
+        &__info-list-item {
+        }
+
+        &__input-section {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        &__notion {
+            position: static;
+        }
+    }
+
+}
+
+@media all and (max-width: 600px) {
+
+    .letter {
+
+        &__info-list-item {
+            align-items: flex-start;
+        }
+    }
+
+}

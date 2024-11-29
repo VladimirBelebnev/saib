@@ -1,0 +1,51 @@
+// Notions
+
+.notions {
+    width: 100%;
+
+    &__text {
+        font-weight: $medium;
+        font-size: 1.12rem;
+        line-height: 178%;
+        margin-bottom: 1.75rem;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    &__add-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        margin-bottom: 1.75rem;
+        transition: .5s;
+
+        svg {
+            transition: .5s;
+        }
+
+        &:hover {
+            color: $primaryColor;
+            opacity: 1;
+
+            svg {
+                fill: $primaryColor;
+            }
+        }
+    }
+
+    &__save-btn {
+        @include btn($primaryColor, $white);
+        line-height: 125%;
+        padding: 1rem 1.5rem;
+    }
+
+    .checkbox {
+        display: flex;
+        gap: 0.5rem;
+    }
+}

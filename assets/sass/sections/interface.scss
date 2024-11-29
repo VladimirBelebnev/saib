@@ -1,0 +1,15 @@
+// Interface Styles
+
+.interface {
+
+    &__content {
+        width: 100%;
+        background: $white;
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 15px 0 rgba(115, 146, 193, 0.05);
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+}
