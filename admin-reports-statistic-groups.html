@@ -287,11 +287,11 @@
                             </div>
                             <div class="latest__header-row latest__header-row_two-columns">
                                 <div class="latest__header-left-section latest__tab-buttons">
-                                    <button class="latest__tab-btn latest__tab-btn_active">
+                                    <button class="latest__tab-btn latest__tab-btn_active" data-tab="tab-1">
                                         Активные
                                     </button>
                                     
-                                    <button class="latest__tab-btn">
+                                    <button class="latest__tab-btn" data-tab="tab-2">
                                         Архивные
                                     </button>
                                 </div>
@@ -299,7 +299,7 @@
                         </header>
 
                         <div class="latest__content">
-                            <table class="latest__table">
+                            <table class="latest__table" data-tab="tab-1">
                                 <thead class="latest__table-header">
                                     <tr class="latest__table-row">
                                         <th class="latest__table-title">
@@ -460,7 +460,7 @@
 
                             </table>
 
-                            <table class="latest__table none">
+                            <table class="latest__table none" data-tab="tab-2">
                                 <thead class="latest__table-header">
                                     <tr class="latest__table-row">
                                         <th class="latest__table-title">
@@ -518,7 +518,13 @@
 
                                 <tr class="latest__table-row">
                                     <td class="latest__cell">
-                                        Михаил Ковалёв
+                                        <button class="latest__drop-down-btn" data-tab="subtab-1">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="#9CA9AF" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3.11198 5.04894C2.97108 4.90804 2.77999 4.82889 2.58073 4.82889C2.38147 4.82889 2.19038 4.90804 2.04948 5.04894C1.90858 5.18984 1.82943 5.38093 1.82943 5.58019C1.82943 5.77945 1.90858 5.97054 2.04948 6.11144L7.04948 11.1114C7.11916 11.1814 7.20195 11.2368 7.29312 11.2747C7.38428 11.3125 7.48202 11.332 7.58073 11.332C7.67944 11.332 7.77718 11.3125 7.86834 11.2747C7.95951 11.2368 8.0423 11.1814 8.11198 11.1114L13.112 6.11144C13.2529 5.97054 13.332 5.77945 13.332 5.58019C13.332 5.38093 13.2529 5.18984 13.112 5.04894C12.9711 4.90804 12.78 4.82889 12.5807 4.82889C12.3815 4.82889 12.1904 4.90804 12.0495 5.04894L7.58135 9.51706L3.11198 5.04894Z" fill="inherit" />
+                                            </svg>
+    
+                                            Юрий
+                                        </button>
                                     </td>
 
                                     <td class="latest__cell">
@@ -532,7 +538,7 @@
 
                             </table>
 
-                            <div class="latest__drop-downs row-description row-description_table none">
+                            <div class="latest__drop-downs row-description row-description_table none" data-tab="subtab-1">
                                 <table class="latest__table">
                                     <thead class="latest__table-header">
                                         <tr class="latest__table-row">
@@ -696,11 +702,11 @@
                             </div>
                             <div class="latest__header-row latest__header-row_two-columns">
                                 <div class="latest__header-left-section latest__tab-buttons">
-                                    <button class="latest__tab-btn latest__tab-btn_active">
+                                    <button class="latest__tab-btn latest__tab-btn_active" data-tab="tab-1">
                                         Активные
                                     </button>
                                     
-                                    <button class="latest__tab-btn">
+                                    <button class="latest__tab-btn" data-tab="tab-2">
                                         Архивные
                                     </button>
                                 </div>
@@ -708,7 +714,7 @@
                         </header>
 
                         <div class="latest__content">
-                            <table class="latest__table">
+                            <table class="latest__table" data-tab="tab-1">
                                 <thead class="latest__table-header">
                                     <tr class="latest__table-row">
                                         <th class="latest__table-title">
@@ -869,7 +875,7 @@
 
                             </table>
 
-                            <table class="latest__table none">
+                            <table class="latest__table none" data-tab="tab-2">
                                 <thead class="latest__table-header">
                                     <tr class="latest__table-row">
                                         <th class="latest__table-title">
@@ -1092,7 +1098,7 @@
                 <div class="container">
                     <div class="selected__row">
                         <span class="selected__count">
-                            Выбрана 1 позиция
+                            Выбрана 0 позиций
                         </span>
                         
 

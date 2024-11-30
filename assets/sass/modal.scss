@@ -161,7 +161,7 @@
 
         &_company {
 
-            &:hover > .search-element {
+            &:hover:not(.click-pop-up) > .search-element {
                 opacity: 1;
                 visibility: visible;
             }
@@ -585,8 +585,53 @@
 
         .upload-field {
 
+            &__mini-title {
+                font-weight: $bold;
+                font-size: 1rem;
+                line-height: 125%;
+            }
+
             &__label {
                 gap: 1.25rem;
+
+                &_uploaded {
+                    flex-direction: row;
+                    gap: 0.5rem;
+                }
+
+                &_edit {
+                    padding: 0;
+                    border: none;
+                    outline: none;
+                }
+            }
+
+            &__row {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    }
+
+    &_edit {
+        
+        .upload-field {
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &__label {
+
+                &_uploaded {
+                    padding: 0;
+                    border: none;
+                    outline: none;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
             }
         }
     }
@@ -604,7 +649,7 @@
         position: relative;
     }
 
-    &__input-wrapper:hover .calendare {
+    &__input-wrapper:not(.click-pop-up):hover .calendare {
         opacity: 1;
         visibility: visible;
     }
@@ -684,6 +729,7 @@
         &_date {
             width: 100%;
             appearance: none;
+            cursor: pointer;
 
             &:disabled {
                 background: $white;
@@ -834,12 +880,17 @@
     justify-content: center;
     align-items: center;
 
-    &:hover {
+    &:not(.click-pop-up):hover {
 
         .notify {
             visibility: visible;
             opacity: 1;
         }
+    }
+
+    &.click-pop-up .notify {
+        visibility: visible;
+        opacity: 1;
     }
 }
 
@@ -1313,6 +1364,14 @@
             object-fit: contain;
             object-position: center;
         }
+    }
+}
+
+.click-pop-up {
+
+    .input-group + * {
+        opacity: 1;
+        visibility: visible;
     }
 }
 

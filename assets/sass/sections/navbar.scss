@@ -47,6 +47,15 @@
                     background-size: 100%;
                     background-repeat: no-repeat;
                 }
+
+                &_open {
+                    
+                    &::before {
+                        content: "";
+                        transform: rotate(180deg) translate(-0.625rem, -50%);
+                        transform-origin: -50% 0;
+                    }
+                }
             }
             
         }

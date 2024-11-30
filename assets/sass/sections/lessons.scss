@@ -75,6 +75,18 @@
         position: absolute;
         top: 1.25rem;
         right: 1.25rem;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &_active {
+
+            svg {
+                fill: $primaryColor;
+                stroke: $primaryColor;
+            }
+        }
     }
 }
 

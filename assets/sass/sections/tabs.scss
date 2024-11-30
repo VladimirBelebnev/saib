@@ -19,6 +19,7 @@
         font-size: 0.94rem;
         line-height: 130%;
         color: $gray5;
+        transition: opacity .5s;
 
         &_active {
             border-bottom: 2px solid $primaryColor;

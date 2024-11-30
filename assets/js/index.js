@@ -147,22 +147,6 @@ if (ctx1) {
     });
 }
 
-// No UI Slider
-
-const soundRange = document.querySelector(".video__sound-range");
-
-if (soundRange) {
-    noUiSlider.create(soundRange, {
-        start: 127,
-        connect: [false, true],
-        orientation: "vertical",
-        range: {
-            'min': 0,
-            'max': 100
-        },
-    });
-}
-
 // Main JS
 
 // Variables
@@ -193,7 +177,7 @@ const togglePassButtons = document.querySelectorAll(".input-group__toggle-pass")
 const calendareNextBtn = document.querySelector(".calendare__next-btn");
 const calendarePrevBtn = document.querySelector(".calendare__prev-btn");
 const currentDate = document.querySelector(".calendare__current-month");
-const saveDiapasonBtn = document.querySelector(".calendare__cancel-btn");
+const saveDiapasonBtn = document.querySelector(".calendare__save-btn");
 const selectDiapasonButtons = document.querySelectorAll(".calendare .drop-down__btn");
 let cellsSingle;
 
@@ -206,6 +190,65 @@ let isDiapason;
 // Diapason Variables
 
 const checkboxes = document.querySelectorAll(".checkbox-quadro__input");
+
+// Pop Up Variables
+
+const popUpWrappers = document.querySelectorAll(".click-pop-up .input-group");
+
+const visibleCells = document.querySelectorAll(".latest__cell-visible");
+const hiddenCells = document.querySelectorAll(".latest__cell-hidden input");
+
+// Latest Tabs
+
+const tabButtons = document.querySelectorAll(".latest__tab-btn");
+
+// Latest Drop Downs
+
+const latestDropDownButtons = document.querySelectorAll(".latest__drop-down-btn");
+
+// Side Panel Drop-Downs
+
+const dropDownButtons = document.querySelectorAll(".side-panel__link-item_drop-down .side-panel__link");
+
+// Edit Tabs
+
+const editTabButtons = document.querySelectorAll(".modal__edit-tab-btn");
+
+// Lending
+
+const lendingCheckbox = document.querySelector(".lending__checkbox");
+
+// User Options
+
+const userOptions = document.querySelector(".monitoring__toggle-btn");
+
+// Settings Tabs
+
+const settingsTabButtons = document.querySelectorAll(".tabs__btn");
+
+// Lessons Like
+
+const lessonsLikes = document.querySelectorAll(".lesson__like");
+
+// Copy Buttons
+
+const copyButtons = document.querySelectorAll(".copy-btn");
+const modalCopyButtons = document.querySelectorAll(".modal__copy-btn");
+
+// All Checkboxes
+
+const allCheckboxes = document.querySelectorAll(".checkbox_minus input");
+
+// Video
+
+const video = document.querySelector(".video__video");
+const playbackBtn = document.querySelector(".video__reload-btn");
+const fullScreenBtn = document.querySelector(".video__fullscreen-btn");
+
+// Selected
+
+const selectedCount = document.querySelector(".selected__count");
+const titleCheckboxes = document.querySelectorAll(".latest__header-left-section input");
 
 // Start Values
 
@@ -318,6 +361,9 @@ function generateMonth(tbody, year, month) {
     let tableParent = table.closest(".calendare");
     isDiapason = !!(tableParent.getAttribute("data-is-diapason"));
 
+    const currentDateText = table.closest(".calendare").querySelector(".calendare__select-diapason");
+    const currentDateInput = table.closest(".calendare").previousElementSibling.querySelector(".input-group__input_date");
+
     table.innerHTML = "";
 
     tableBody += "<tr class='calendare__table-row'>";
@@ -330,7 +376,7 @@ function generateMonth(tbody, year, month) {
     for (let i = 0; i < getDay(date); i++) {
         let startDate = lastDayPrevMonth - (getDay(date) - 1);
 
-        tableBody += `<td class="calendare__cell calendare__cell_out-month" data-date="${currentYear}.${currentMonth - 1}.${startDate + i}">
+        tableBody += `<td class="calendare__cell calendare__cell_out-month" data-date="${(currentMonth - 1) == 0 ? currentYear - 1 : currentYear}.${(currentMonth - 1) == 0 ? 12 : currentMonth - 1}.${startDate + i}">
             ${startDate + i}
         </td>`;
     }
@@ -367,17 +413,33 @@ function generateMonth(tbody, year, month) {
         item.setAttribute("data-order", `${Math.round((((itemDate - currentDate) / 1000) / 3600) / 24) + currentDate.getDate() + 1}`);
     });
 
-    if (isDiapason) {
+    if (isDiapason && currentDiapason != "today" && currentDiapason != "yesterday") {
         interpretateDiapason(currentDiapason);
 
         let start = new Date();
         let end = new Date();
 
-        end.setDate((new Date()).getDate() - currentDiapason);
+        let currentDate = new Date();
 
-        const currentDateInput = table.closest(".select-input-2").querySelector(".input__select-value");
+        if (currentDiapason == "currentmonth") {
+            end = new Date(currentDate.getFullYear(), currentDate.getMonth());
+            start = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
 
-        currentDateInput.textContent = `${end.getFullYear()}.${end.getMonth()}.${end.getDate() < 10 ? "0" + end.getDate() : end.getDate()} - ${start.getFullYear()}.${start.getMonth()}.${start.getDate() < 10 ? "0" + start.getDate() : start.getDate()}`;
+            start.setDate(0);
+        }   else if (currentDiapason == "lastmonth") {
+            end = new Date(currentDate.getFullYear(), currentDate.getMonth());
+            start = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1);
+
+            end.setMonth(end.getMonth() - 1);
+            start.setMonth(start.getMonth() - 1);
+
+            start.setDate(0);
+        }   else {
+            end.setDate((new Date()).getDate() - currentDiapason);
+        }
+
+        currentDateText.textContent = `Выбран диапазон: ${end.getFullYear()}.${end.getMonth() + 1}.${end.getDate() < 10 ? "0" + end.getDate() : end.getDate()} - ${start.getFullYear()}.${start.getMonth() + 1}.${start.getDate() < 10 ? "0" + start.getDate() : start.getDate()}`;
+        currentDateInput.value = `${end.getFullYear()}.${end.getMonth() + 1}.${end.getDate() < 10 ? "0" + end.getDate() : end.getDate()} - ${start.getFullYear()}.${start.getMonth() + 1}.${start.getDate() < 10 ? "0" + start.getDate() : start.getDate()}`;
     }
 
     cellsSingle = document.querySelectorAll(".calendare__cell:not(.calendare__cell_title)");
@@ -391,6 +453,39 @@ function generateMonth(tbody, year, month) {
                 currentCell.classList.add("calendare__cell_active");
             });
         })
+    }
+
+    if (currentDiapason == "today") {
+        const date = new Date();
+        
+        cellsSingle.forEach(item => {
+            const itemDate = (new Date(...(item.getAttribute("data-date").split("."))));
+            itemDate.setMonth(itemDate.getMonth() - 1);
+
+            if (itemDate.getDate() == date.getDate() && itemDate.getFullYear() == date.getFullYear() && itemDate.getMonth() == date.getMonth()) {
+                item.classList.add("calendare__cell_active");
+
+                currentDateText.textContent = `Выбрана дата: ${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`;
+                currentDateInput.value = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`;
+            }
+        });
+    }
+
+    if (currentDiapason == "yesterday") {
+        const date = new Date();
+        date.setDate(date.getDate() - 1);
+
+        cellsSingle.forEach(item => {
+            const itemDate = (new Date(...(item.getAttribute("data-date").split("."))));
+            itemDate.setMonth(itemDate.getMonth() - 1);
+
+            if (itemDate.getDate() == date.getDate() && itemDate.getFullYear() == date.getFullYear() && itemDate.getMonth() == date.getMonth()) {
+                item.classList.add("calendare__cell_active");
+
+                currentDateText.textContent = `Выбрана дата: ${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`;
+                currentDateInput.value = `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate() < 10 ? "0" + date.getDate() : date.getDate()}`;
+            }
+        });
     }
 }
 
@@ -490,7 +585,43 @@ function setDiapasonCalendare(start, end, cells) {
 
 function interpretateDiapason(length) {
     const date = new Date();
+    let monthDays;
+    let start, end;
     const cells = Array.from(document.querySelectorAll(".calendare__cell")).filter(item => !(item.classList.contains("calendare__cell_title")));
+
+    switch (length) {
+        case ("currentmonth"):
+            start = new Date(date.getFullYear(), date.getMonth());
+            end = new Date(date.getFullYear(), date.getMonth() + 1);
+
+            end.setDate(0);
+        break;
+
+        case ("lastmonth"):
+            let copyDate = new Date();
+            copyDate.setDate(0);
+            monthDays = copyDate.getDate();
+
+            start = new Date(date.getFullYear(), date.getMonth());
+            end = new Date(date.getFullYear(), date.getMonth() + 1);
+
+            end.setDate(0);
+
+            start.setMonth(start.getMonth() - 1);
+            end.setMonth(end.getMonth() - 1);
+
+            console.log(start, end);
+        break;
+    }
+
+    if (start || end) {
+        if (length == "currentmonth") {
+            setDiapasonCalendare(start.getDate(), end.getDate(), cells);
+        }   else {
+            setDiapasonCalendare(start.getDate() - monthDays, end.getDate() - monthDays, cells);
+        }
+        return;
+    }
 
     setDiapasonCalendare(date.getDate() - length, date.getDate(), cells);
 }
@@ -506,6 +637,11 @@ function closeAllDropDowns(elements) {
 if (currentDate) {
 
     generateMonth(".calendare__table-body", currentYear, currentMonth);
+    const dateElems = document.querySelectorAll(".calendare__current-month");
+
+    dateElems.forEach(item => {
+        toggleDate("next", item);
+    });
 
     calendareNextBtn?.addEventListener("click", (event) => {
         event.preventDefault();
@@ -523,16 +659,16 @@ if (currentDate) {
 
     saveDiapasonBtn?.addEventListener("click", (event) => {
         const currentBtn = event.currentTarget;
-        const diapasonButtons = currentBtn.closest(".calendare__select-wrapper").querySelectorAll(".drop-down__btn");
+        const diapasonButtons = currentBtn.closest(".calendare").querySelectorAll(".drop-down__btn");
         const diapasonActiveBtnValue = Array.from(diapasonButtons).find(item => item.classList.contains("drop-down__btn_active"))
                                     .getAttribute("data-diapason");
-        const diapasonInput = currentBtn.closest(".calendare__select-wrapper").querySelector(".select-diapason__input-value");
+        const diapasonInput = currentBtn.closest(".calendare").querySelector(".select-diapason__input-value");
 
         if (diapasonInput/*.value*/) {
             currentDiapason = +diapasonInput.value;
             generateMonth(".calendare__table-body", currentYear, currentMonth);
         }   else {
-            currentDiapason = +diapasonActiveBtnValue;
+            currentDiapason = isFinite(parseInt(diapasonInput)) ? +diapasonActiveBtnValue : diapasonActiveBtnValue;
             generateMonth(".calendare__table-body", currentYear, currentMonth);
         }
     });
@@ -563,7 +699,15 @@ searchElements?.forEach(element => {
         event.preventDefault();
         let currentWrapper = event.currentTarget.closest(".modal__input-wrapper").querySelector(".modal__company-input");
 
-        addElement(currentWrapper, event.currentTarget.textContent);
+        if (currentWrapper) {
+            addElement(currentWrapper, event.currentTarget.textContent);
+        }   else {
+            let value = event.currentTarget.closest(".modal__input-wrapper").querySelector(".input-group__drop-down-btn");
+            value.innerHTML = `${event.currentTarget.textContent} <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075"></path>
+                                </svg>`;
+            value.classList.add("input-group__drop-down-btn_changed");
+        }
     });
 });
 
@@ -602,6 +746,289 @@ togglePassButtons?.forEach(btn => {
         }
 
         event.preventDefault();
+    });
+});
+
+popUpWrappers.forEach(item => {
+    item.addEventListener("click", () => {
+        popUpWrappers.forEach(wrapper => {
+            if (wrapper != item) {
+                wrapper.nextElementSibling.classList.add("hidden");
+            }
+        });
+
+        const popUp = item.nextElementSibling;
+        popUp.classList.toggle("hidden");
+    });
+});
+
+visibleCells.forEach(item => {
+    item.addEventListener("click", () => {
+        const nextEl = item.nextElementSibling;
+
+        hiddenCells.forEach(input => {
+            const prevEl = input.parentElement.previousElementSibling;
+            prevEl.classList.remove("none");
+            input.parentElement.classList.add("none");
+        });
+
+        nextEl.classList.toggle("none");
+        item.classList.toggle("none");
+
+        nextEl.querySelector("input").focus();
+    });
+});
+
+hiddenCells.forEach(item => {
+    item.addEventListener("change", () => {
+        const prevEl = item.parentElement.previousElementSibling;
+        prevEl.textContent = item.value;
+        prevEl.classList.toggle("none");
+        item.parentElement.classList.toggle("none");
+    });
+});
+
+tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const parent = btn.closest(".latest");
+        const btnData = btn.getAttribute("data-tab");
+        const tabs = parent.querySelectorAll(".latest__table:not(.row-description .latest__table)");
+        const currentButtons = parent.querySelectorAll(".latest__tab-btn");
+
+        tabs.forEach(tab => {
+            if (tab.getAttribute("data-tab") == btnData) {
+                tab.classList.remove("none");
+            }   else {
+                tab.classList.add("none");
+            }
+        });
+
+        currentButtons.forEach(item => item.classList.remove("latest__tab-btn_active"));
+        btn.classList.add("latest__tab-btn_active");
+    });
+});
+
+dropDownButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const dropDown = btn.nextElementSibling;
+        dropDown.classList.toggle("none");
+        btn.classList.toggle("side-panel__link_open");
+    });
+});
+
+latestDropDownButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const tabs = btn.closest(".latest").querySelectorAll(".row-description");
+        const data = btn.getAttribute("data-tab");
+        const currentRow = btn.closest(".latest__table-row");
+        const currentCells = currentRow.querySelectorAll(".latest__cell");
+        const topRow = currentRow.offsetTop;
+        let tabHeight;
+
+        tabs.forEach(tab => {
+            if (data == tab.getAttribute("data-tab")) {
+                tab.classList.toggle("none");
+                tabHeight = tab.offsetHeight;
+
+                if (tab.classList.contains("none")) {
+                    currentCells.forEach(cell => cell.style.paddingBottom = 16 + "px");
+                }   else {
+                    currentCells.forEach(cell => cell.style.paddingBottom = tabHeight + 16 + "px");
+                    tab.style.top = topRow * 3 + 8 + "px";
+                }
+            }   else {
+                tab.classList.add("none");
+            }
+        });
+
+        latestDropDownButtons.forEach(item => {
+            if (item == btn) {
+                btn.classList.toggle("latest__drop-down-btn_active");
+            }   else {
+                item.classList.remove("latest__drop-down-btn_active");
+            }
+        });
+    });
+});
+
+editTabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const tabs = Array.from(btn.closest(".modal__edit-tab-section").querySelector(".modal__edit-tabs").children);
+        const data = btn.getAttribute("data-tab");
+
+        tabs.forEach(tab => {
+            if (tab.getAttribute("data-tab") == data) {
+                tab.classList.remove("none");
+            }   else {
+                tab.classList.add("none");
+            }
+        });
+
+        editTabButtons.forEach(item => {
+            if (item == btn) {
+                btn.classList.add("modal__edit-tab-btn_active");
+            }   else {
+                item.classList.remove("modal__edit-tab-btn_active");
+            }
+        });
+    });
+});
+
+lendingCheckbox?.addEventListener("change", () => {
+    const hiddenSection = lendingCheckbox.nextElementSibling;
+    hiddenSection.classList.toggle("none");
+});
+
+userOptions?.addEventListener("click", () => {
+    const hiddenSection = userOptions.parentElement.nextElementSibling;
+    hiddenSection.classList.toggle("none");
+    userOptions.classList.toggle("monitoring__toggle-btn_active");
+});
+
+settingsTabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const tabs = Array.from(document.querySelector(".tabs-wrapper").children);
+        const data = btn.getAttribute("data-tab");
+
+        tabs.forEach(tab => {
+            if (tab.getAttribute("data-tab") == data) {
+                tab.classList.remove("none");
+            }   else {
+                tab.classList.add("none");
+            }
+        });
+
+        settingsTabButtons.forEach(item => {
+            if (item == btn) {
+                btn.classList.add("tabs__btn_active");
+            }   else {
+                item.classList.remove("tabs__btn_active");
+            }
+        });
+    });
+});
+
+copyButtons.forEach(item => {
+    item?.addEventListener("click", (event) => {
+        const currentBtn = event.currentTarget;
+        const wrapper = currentBtn.closest(".input-group");
+        const input = wrapper.querySelector("input");
+        const notify = wrapper.querySelector(".notify");
+
+        navigator.clipboard.writeText(input.value);
+
+        if (notify) {
+            notify.classList.remove("hidden");
+            setTimeout(() => notify.classList.add("hidden"), 2000);
+        }
+    });
+});
+
+lessonsLikes.forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.classList.toggle("lesson__like_active");
+    });
+});
+
+playbackBtn?.addEventListener("click", () => {
+    video.currentTime = 0;
+});
+
+// No UI Slider
+
+const soundRange = document.querySelector(".video__sound-range");
+
+if (soundRange) {
+    noUiSlider.create(soundRange, {
+        start: 127,
+        connect: [false, true],
+        orientation: "vertical",
+        range: {
+            'min': 0,
+            'max': 100
+        },
+    });
+}
+
+soundRange?.noUiSlider.on("slide", (value) => {
+    video.volume = value[0] / 100;
+});
+
+allCheckboxes.forEach(item => {
+    item.addEventListener("change", () => {
+        let allCheckbox = item.closest(".latest").querySelector("tbody").querySelectorAll(".checkbox input");
+
+        if (!item.checked) {
+            allCheckbox.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+        }   else {
+            allCheckbox.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+        }
+    });
+});
+
+titleCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+        let count = 0;
+
+        titleCheckboxes.forEach(item => {
+            if (item.checked) {
+                count++;
+            }
+        });
+
+        selectedCount.textContent = `Выбрана ${count} позиций`;
+    });
+});
+
+modalCopyButtons.forEach(item => {
+    item.addEventListener("click", (event) => {
+        let input = event.currentTarget.closest(".modal").querySelector("input, textarea");
+        let notify = event.currentTarget.nextElementSibling;
+        navigator.clipboard.writeText(input.value);
+
+        if (notify) {
+            notify.classList.remove("none");
+            setTimeout(() => notify.classList.add("none"), 2000);
+        }
+    });
+});
+
+// File Events
+
+const fileInputs = document.querySelectorAll(".upload-field__input");
+let deleteCertButtons = document.querySelectorAll(".upload-field__delete-btn");
+
+fileInputs.forEach(input => {
+    input.addEventListener("change", () => {
+        let file = input.files[0];
+        let parent = input.parentElement;
+        let uploaded = parent.querySelector(".upload-field__label_uploaded");
+        let label = parent.querySelector(".upload-field__label_unuploaded");
+        let parentModal = input.closest(".upload");
+
+        label.classList.add("none");
+        uploaded.classList.remove("none");
+
+        if (parentModal.classList.contains("upload_narrow") && !parentModal.classList.contains("upload_edit")) {
+            uploaded.querySelector(".upload-field__text").innerHTML = `Загружен файл: <span class="upload-field__text_orange">${file.name}</span>`;
+        }   else {
+            uploaded.querySelector(".upload-field__text").innerHTML = `Файл <span class="upload-field__text_orange">${file.name}</span> загружен`;
+        }
+    });
+});
+
+deleteCertButtons.forEach(item => {
+    item.addEventListener("click", () => {
+        let parent = item.closest(".upload-field");
+        let uploaded = parent.querySelector(".upload-field__label_uploaded");
+        let label = parent.querySelector(".upload-field__label_unuploaded");
+
+        uploaded.classList.add("none");
+        label.classList.remove("none");
     });
 });
 

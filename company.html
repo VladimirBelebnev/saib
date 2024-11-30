@@ -271,11 +271,11 @@
                         </div>
                         <div class="latest__header-row latest__header-row_two-columns">
                             <div class="latest__header-left-section latest__tab-buttons">
-                                <button class="latest__tab-btn latest__tab-btn_active">
+                                <button class="latest__tab-btn latest__tab-btn_active" data-tab="tab-1">
                                     Активные
                                 </button>
                                 
-                                <button class="latest__tab-btn">
+                                <button class="latest__tab-btn" data-tab="tab-2">
                                     Архивные
                                 </button>
                             </div>
@@ -293,7 +293,98 @@
                     </header>
 
                     <div class="latest__content latest__content_tabs">
-                        <table class="latest__table">
+                        <table class="latest__table" data-tab="tab-1">
+                            <thead class="latest__table-header">
+                                <tr class="latest__table-row">
+                                    <th class="latest__table-title">
+                                        <div class="latest__table-cell-wrapper">
+                                            <span class="latest__table-cell-text">
+                                                Название
+                                            </span>
+        
+                                            <button class="latest__table-sort">
+                                                <svg width="8" height="4" viewBox="0 0 8 4" fill="#DDE5EC" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.538122 3.69164C0.500223 3.60029 0.490267 3.49975 0.509513 3.40274C0.52876 3.30573 0.576343 3.21661 0.646247 3.14664L3.64625 0.146643C3.69268 0.100155 3.74783 0.0632755 3.80853 0.0381134C3.86923 0.0129512 3.93429 0 4 0C4.0657 0 4.13077 0.0129512 4.19147 0.0381134C4.25217 0.0632755 4.30731 0.100155 4.35375 0.146643L7.35375 3.14664C7.42375 3.21657 7.47144 3.3057 7.49076 3.40274C7.51009 3.49978 7.50018 3.60038 7.46231 3.69179C7.42443 3.7832 7.36028 3.86132 7.27799 3.91625C7.19569 3.97119 7.09894 4.00047 7 4.00039H0.999997C0.901107 4.00037 0.804444 3.97103 0.722231 3.91607C0.640018 3.86111 0.575948 3.78301 0.538122 3.69164Z" fill="inherit" />
+                                                </svg>
+                                                <svg width="8" height="4" viewBox="0 0 8 4" fill="#DDE5EC" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.538122 0.308723C0.500223 0.400075 0.490267 0.500614 0.509513 0.597624C0.52876 0.694635 0.576343 0.783759 0.646247 0.853723L3.64625 3.85372C3.69268 3.90021 3.74783 3.93709 3.80853 3.96225C3.86923 3.98742 3.93429 4.00037 4 4.00037C4.0657 4.00037 4.13077 3.98742 4.19147 3.96225C4.25217 3.93709 4.30731 3.90021 4.35375 3.85372L7.35375 0.853723C7.42375 0.783795 7.47144 0.694669 7.49076 0.597626C7.51009 0.500584 7.50018 0.399989 7.46231 0.308578C7.42443 0.217166 7.36028 0.139048 7.27799 0.0841126C7.19569 0.0291772 7.09894 -0.000104904 7 -2.71797e-05H0.999997C0.901107 -6.67572e-06 0.804444 0.0293374 0.722231 0.0842943C0.640018 0.139251 0.575948 0.217353 0.538122 0.308723Z" fill="inherit" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </th>
+
+                                    <th class="latest__table-title">
+                                        <div class="latest__table-cell-wrapper">
+                                            <span class="latest__table-cell-text">
+                                                Дата создания
+                                            </span>
+        
+                                            <button class="latest__table-sort">
+                                                <svg width="8" height="4" viewBox="0 0 8 4" fill="#DDE5EC" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.538122 3.69164C0.500223 3.60029 0.490267 3.49975 0.509513 3.40274C0.52876 3.30573 0.576343 3.21661 0.646247 3.14664L3.64625 0.146643C3.69268 0.100155 3.74783 0.0632755 3.80853 0.0381134C3.86923 0.0129512 3.93429 0 4 0C4.0657 0 4.13077 0.0129512 4.19147 0.0381134C4.25217 0.0632755 4.30731 0.100155 4.35375 0.146643L7.35375 3.14664C7.42375 3.21657 7.47144 3.3057 7.49076 3.40274C7.51009 3.49978 7.50018 3.60038 7.46231 3.69179C7.42443 3.7832 7.36028 3.86132 7.27799 3.91625C7.19569 3.97119 7.09894 4.00047 7 4.00039H0.999997C0.901107 4.00037 0.804444 3.97103 0.722231 3.91607C0.640018 3.86111 0.575948 3.78301 0.538122 3.69164Z" fill="inherit" />
+                                                </svg>
+                                                <svg width="8" height="4" viewBox="0 0 8 4" fill="#DDE5EC" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.538122 0.308723C0.500223 0.400075 0.490267 0.500614 0.509513 0.597624C0.52876 0.694635 0.576343 0.783759 0.646247 0.853723L3.64625 3.85372C3.69268 3.90021 3.74783 3.93709 3.80853 3.96225C3.86923 3.98742 3.93429 4.00037 4 4.00037C4.0657 4.00037 4.13077 3.98742 4.19147 3.96225C4.25217 3.93709 4.30731 3.90021 4.35375 3.85372L7.35375 0.853723C7.42375 0.783795 7.47144 0.694669 7.49076 0.597626C7.51009 0.500584 7.50018 0.399989 7.46231 0.308578C7.42443 0.217166 7.36028 0.139048 7.27799 0.0841126C7.19569 0.0291772 7.09894 -0.000104904 7 -2.71797e-05H0.999997C0.901107 -6.67572e-06 0.804444 0.0293374 0.722231 0.0842943C0.640018 0.139251 0.575948 0.217353 0.538122 0.308723Z" fill="inherit" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </th>
+    
+                                    <th class="latest__table-title">
+                                        <div class="latest__table-cell-wrapper">
+                                            <span class="latest__table-title">
+                                                Статус
+                                            </span>
+        
+                                            <button class="latest__table-sort">
+                                                <svg width="8" height="4" viewBox="0 0 8 4" fill="#DDE5EC" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.538122 3.69164C0.500223 3.60029 0.490267 3.49975 0.509513 3.40274C0.52876 3.30573 0.576343 3.21661 0.646247 3.14664L3.64625 0.146643C3.69268 0.100155 3.74783 0.0632755 3.80853 0.0381134C3.86923 0.0129512 3.93429 0 4 0C4.0657 0 4.13077 0.0129512 4.19147 0.0381134C4.25217 0.0632755 4.30731 0.100155 4.35375 0.146643L7.35375 3.14664C7.42375 3.21657 7.47144 3.3057 7.49076 3.40274C7.51009 3.49978 7.50018 3.60038 7.46231 3.69179C7.42443 3.7832 7.36028 3.86132 7.27799 3.91625C7.19569 3.97119 7.09894 4.00047 7 4.00039H0.999997C0.901107 4.00037 0.804444 3.97103 0.722231 3.91607C0.640018 3.86111 0.575948 3.78301 0.538122 3.69164Z" fill="inherit" />
+                                                </svg>
+                                                <svg width="8" height="4" viewBox="0 0 8 4" fill="#DDE5EC" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.538122 0.308723C0.500223 0.400075 0.490267 0.500614 0.509513 0.597624C0.52876 0.694635 0.576343 0.783759 0.646247 0.853723L3.64625 3.85372C3.69268 3.90021 3.74783 3.93709 3.80853 3.96225C3.86923 3.98742 3.93429 4.00037 4 4.00037C4.0657 4.00037 4.13077 3.98742 4.19147 3.96225C4.25217 3.93709 4.30731 3.90021 4.35375 3.85372L7.35375 0.853723C7.42375 0.783795 7.47144 0.694669 7.49076 0.597626C7.51009 0.500584 7.50018 0.399989 7.46231 0.308578C7.42443 0.217166 7.36028 0.139048 7.27799 0.0841126C7.19569 0.0291772 7.09894 -0.000104904 7 -2.71797e-05H0.999997C0.901107 -6.67572e-06 0.804444 0.0293374 0.722231 0.0842943C0.640018 0.139251 0.575948 0.217353 0.538122 0.308723Z" fill="inherit" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </th>
+    
+                                    <th class="latest__table-title latest__table-title_empty"></th>
+                                </tr>
+                            </thead>
+
+                            <tr class="latest__table-row">
+                                <td class="latest__cell">
+                                    Юра тест
+                                </td>
+
+                                <td class="latest__cell">
+                                    6 мар 2024, 12:48:52
+                                </td>
+
+                                <td class="latest__cell">
+                                    <span class="latest__status latest__status_process">
+                                        В процессе
+                                    </span>
+                                </td>
+
+                                <td class="latest__cell">
+                                    <div class="latest__table-cell-wrapper latest__table-cell-wrapper_right latest__table-cell-wrapper_columns">
+                                        <button data-modal="plan" class="latest__edit-btn">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#677075" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.0306 6.21938L16.2806 2.46938C16.2109 2.39975 16.1282 2.34454 16.0371 2.3069C15.9461 2.26926 15.8485 2.24992 15.75 2.25H8.25C7.85218 2.25 7.47064 2.40804 7.18934 2.68934C6.90804 2.97064 6.75 3.35218 6.75 3.75V5.25H5.25C4.85218 5.25 4.47064 5.40804 4.18934 5.68934C3.90804 5.97064 3.75 6.35218 3.75 6.75V20.25C3.75 20.6478 3.90804 21.0294 4.18934 21.3107C4.47064 21.592 4.85218 21.75 5.25 21.75H15.75C16.1478 21.75 16.5294 21.592 16.8107 21.3107C17.092 21.0294 17.25 20.6478 17.25 20.25V18.75H18.75C19.1478 18.75 19.5294 18.592 19.8107 18.3107C20.092 18.0294 20.25 17.6478 20.25 17.25V6.75C20.2501 6.65148 20.2307 6.55391 20.1931 6.46286C20.1555 6.37182 20.1003 6.28908 20.0306 6.21938ZM15.75 20.25H5.25V6.75H12.4397L15.75 10.0603V20.25ZM18.75 17.25H17.25V9.75C17.2501 9.65148 17.2307 9.55391 17.1931 9.46286C17.1555 9.37182 17.1003 9.28908 17.0306 9.21937L13.2806 5.46938C13.2109 5.39975 13.1282 5.34454 13.0371 5.3069C12.9461 5.26926 12.8485 5.24992 12.75 5.25H8.25V3.75H15.4397L18.75 7.06031V17.25ZM13.5 14.25C13.5 14.4489 13.421 14.6397 13.2803 14.7803C13.1397 14.921 12.9489 15 12.75 15H8.25C8.05109 15 7.86032 14.921 7.71967 14.7803C7.57902 14.6397 7.5 14.4489 7.5 14.25C7.5 14.0511 7.57902 13.8603 7.71967 13.7197C7.86032 13.579 8.05109 13.5 8.25 13.5H12.75C12.9489 13.5 13.1397 13.579 13.2803 13.7197C13.421 13.8603 13.5 14.0511 13.5 14.25ZM13.5 17.25C13.5 17.4489 13.421 17.6397 13.2803 17.7803C13.1397 17.921 12.9489 18 12.75 18H8.25C8.05109 18 7.86032 17.921 7.71967 17.7803C7.57902 17.6397 7.5 17.4489 7.5 17.25C7.5 17.0511 7.57902 16.8603 7.71967 16.7197C7.86032 16.579 8.05109 16.5 8.25 16.5H12.75C12.9489 16.5 13.1397 16.579 13.2803 16.7197C13.421 16.8603 13.5 17.0511 13.5 17.25Z" fill="inherit" />
+                                            </svg>
+                                        </button>
+
+                                        <button data-modal="delete-company" class="latest__delete-btn">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="#677075" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M20.25 4.5H16.5V3.75C16.5 3.15326 16.2629 2.58097 15.841 2.15901C15.419 1.73705 14.8467 1.5 14.25 1.5H9.75C9.15326 1.5 8.58097 1.73705 8.15901 2.15901C7.73705 2.58097 7.5 3.15326 7.5 3.75V4.5H3.75C3.55109 4.5 3.36032 4.57902 3.21967 4.71967C3.07902 4.86032 3 5.05109 3 5.25C3 5.44891 3.07902 5.63968 3.21967 5.78033C3.36032 5.92098 3.55109 6 3.75 6H4.5V19.5C4.5 19.8978 4.65804 20.2794 4.93934 20.5607C5.22064 20.842 5.60218 21 6 21H18C18.3978 21 18.7794 20.842 19.0607 20.5607C19.342 20.2794 19.5 19.8978 19.5 19.5V6H20.25C20.4489 6 20.6397 5.92098 20.7803 5.78033C20.921 5.63968 21 5.44891 21 5.25C21 5.05109 20.921 4.86032 20.7803 4.71967C20.6397 4.57902 20.4489 4.5 20.25 4.5ZM9 3.75C9 3.55109 9.07902 3.36032 9.21967 3.21967C9.36032 3.07902 9.55109 3 9.75 3H14.25C14.4489 3 14.6397 3.07902 14.7803 3.21967C14.921 3.36032 15 3.55109 15 3.75V4.5H9V3.75ZM18 19.5H6V6H18V19.5ZM10.5 9.75V15.75C10.5 15.9489 10.421 16.1397 10.2803 16.2803C10.1397 16.421 9.94891 16.5 9.75 16.5C9.55109 16.5 9.36032 16.421 9.21967 16.2803C9.07902 16.1397 9 15.9489 9 15.75V9.75C9 9.55109 9.07902 9.36032 9.21967 9.21967C9.36032 9.07902 9.55109 9 9.75 9C9.94891 9 10.1397 9.07902 10.2803 9.21967C10.421 9.36032 10.5 9.55109 10.5 9.75ZM15 9.75V15.75C15 15.9489 14.921 16.1397 14.7803 16.2803C14.6397 16.421 14.4489 16.5 14.25 16.5C14.0511 16.5 13.8603 16.421 13.7197 16.2803C13.579 16.1397 13.5 15.9489 13.5 15.75V9.75C13.5 9.55109 13.579 9.36032 13.7197 9.21967C13.8603 9.07902 14.0511 9 14.25 9C14.4489 9 14.6397 9.07902 14.7803 9.21967C14.921 9.36032 15 9.55109 15 9.75Z" fill="inherit" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="latest__table none" data-tab="tab-2">
                             <thead class="latest__table-header">
                                 <tr class="latest__table-row">
                                     <th class="latest__table-title">
@@ -441,572 +532,570 @@
                     Новая кампания
                 </h3>
 
-                <form action="#" method="post" class="modal__form">
-                    <div class="modal__inputs-wrapper modal__inputs-wrapper_two-column">
-                        <div class="input-group">
-                            <h4 class="input-group__title">
-                                Название кампании:
-                            </h4>
-                            <input type="text" class="input input-group__input">
-                        </div>
-
-                        <div class="input-group">
-                            <h4 class="input-group__title">
-                                Шаблон письма:
-                            </h4>
-                            <input type="hidden" class="input-group__value">
-                            <button class="input-group__drop-down-btn input-group__drop-down-btn_changed">
-                                1. Обновление системы HelpDesk.
-                            
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
-                                </svg>
-                            </button>
-                            <div class="i-drop-down">
-                                <ul class="i-drop-down__list">
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 1
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 2
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 3
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 4
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <h4 class="input-group__title">
-                                Лендинг:
-                            </h4>
-                            <input type="hidden" class="input-group__value">
-                            <button class="input-group__drop-down-btn">
-                                Выберите лендинг
-                            
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
-                                </svg>
-                            </button>
-                            <div class="i-drop-down">
-                                <ul class="i-drop-down__list">
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 1
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 2
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 3
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 4
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="input-group__title-wrapper">
-                                <h4 class="input-group__title">
-                                    Домен: 
-                                </h4>
-
-                                <div class="notify-wrapper">
-                                    <button class="input-group__notify notify-btn">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16ZM9.6 5.6C9.6 5.824 9.432 6.24 9.264 6.4L8 7.664C7.544 8.128 7.2 8.944 7.2 9.6V10.4H8.8V9.6C8.8 9.368 8.968 8.96 9.136 8.8L10.4 7.536C10.856 7.072 11.2 6.256 11.2 5.6C11.2 4.75131 10.8629 3.93737 10.2627 3.33726C9.66263 2.73714 8.84869 2.4 8 2.4C7.15131 2.4 6.33737 2.73714 5.73726 3.33726C5.13714 3.93737 4.8 4.75131 4.8 5.6H6.4C6.4 5.17565 6.56857 4.76869 6.86863 4.46863C7.16869 4.16857 7.57565 4 8 4C8.42435 4 8.83131 4.16857 9.13137 4.46863C9.43143 4.76869 9.6 5.17565 9.6 5.6ZM7.2 12V13.6H8.8V12H7.2Z" fill="#9CA9AF" />
-                                        </svg>
-                                    </button>
-
-                                    <div class="notify notify_company">
-                                        <p class="notify__text">
-                                            Местоположение прослушивателя Gophish (должно быть доступно целевым объектам!)
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="hidden" class="input-group__value">
-                            <button class="input-group__drop-down-btn">
-                                Выберите домен
-                            
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
-                                </svg>
-                            </button>
-                            <div class="i-drop-down">
-                                <ul class="i-drop-down__list">
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 1
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 2
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 3
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 4
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                <div class="modal__inputs-wrapper modal__inputs-wrapper_two-column">
+                    <div class="input-group">
+                        <h4 class="input-group__title">
+                            Название кампании:
+                        </h4>
+                        <input type="text" class="input input-group__input">
                     </div>
 
-                    <h4 class="modal__section-title">
-                        Параметры запуска
-                    </h4>
-
-                    <div class="modal__inputs-wrapper modal__inputs-wrapper_two-column">
-                        <div class="input-group">
-                            <h4 class="input-group__title">
-                                Способ отправки:
-                            </h4>
-                            <input type="hidden" class="input-group__value">
-                            <button class="input-group__drop-down-btn input-group__drop-down-btn_changed">
-                                Отправить все письма сейчас
-                            
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
-                                </svg>
-                            </button>
-                            <div class="i-drop-down">
-                                <ul class="i-drop-down__list">
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Отправить все письма сейчас
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Отправка всем сразу
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Отправка случайным образом
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <div class="input-group__title-wrapper">
-                                <h4 class="input-group__title">
-                                    Пакетная отправка:
-                                </h4>
-
-                                <div class="notify-wrapper">
-                                    <button class="input-group__notify notify-btn">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16ZM9.6 5.6C9.6 5.824 9.432 6.24 9.264 6.4L8 7.664C7.544 8.128 7.2 8.944 7.2 9.6V10.4H8.8V9.6C8.8 9.368 8.968 8.96 9.136 8.8L10.4 7.536C10.856 7.072 11.2 6.256 11.2 5.6C11.2 4.75131 10.8629 3.93737 10.2627 3.33726C9.66263 2.73714 8.84869 2.4 8 2.4C7.15131 2.4 6.33737 2.73714 5.73726 3.33726C5.13714 3.93737 4.8 4.75131 4.8 5.6H6.4C6.4 5.17565 6.56857 4.76869 6.86863 4.46863C7.16869 4.16857 7.57565 4 8 4C8.42435 4 8.83131 4.16857 9.13137 4.46863C9.43143 4.76869 9.6 5.17565 9.6 5.6ZM7.2 12V13.6H8.8V12H7.2Z" fill="#9CA9AF" />
-                                        </svg>
-                                    </button>
-
-                                    <div class="notify notify_company">
-                                        <p class="notify__text">
-                                            Рекомендуемые значение по 100 шт. каждые 5 сек.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="input-group__inputs">
-                                <div class="input-group__count">
-                                    <span class="input-group__count-text">
-                                        по
-                                    </span>
-
-                                    <input type="text" value="100" class="input-group__count-input">
-
-                                    <span class="input-group__count-text">
-                                        шт.
-                                    </span>
-                                </div>
-
-                                <div class="input-group__count">
-                                    <span class="input-group__count-text">
-                                        Каждые
-                                    </span>
-
-                                    <input type="text" value="5" class="input-group__count-input">
-
-                                    <span class="input-group__count-text">
-                                        сек.
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="statistic-filter__input-wrapper">
-                            <div class="input-group input-group_grey input-group_date">
-                                <h4 class="input-group__title">
-                                    Время отправки:
-                                </h4>
-                                <input type="text" disabled class="input input-group__input input-group__input_date">
-                            </div>
-
-                            <div class="calendare">
-                                <div class="calendare__section">
-                                    <header class="calendare__header">
-                                        <button class="calendare__prev-btn"></button>
-
-                                        <h4 class="calendare__current-month" data-date="2024.11">
-                                            Декабрь 2023
-                                        </h4>
-
-                                        <button class="calendare__next-btn"></button>
-                                    </header>
-
-                                    <table class="calendare__table" cellspacing="0">
-                                        <thead class="calendare__table-header">
-                                            <tr class="calendare__table-row">
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Пн
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Вт
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Ср
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Чт
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Пт
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Сб
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Вс
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody class="calendare__table-body">
-                                        </tbody>
-                                    </table>
-
-                                    <div class="calendare__select-wrapper">
-                                        <button class="calendare__select-diapason">
-                                            Выбран диапазон: 05.08.24 - 18.08.24
-                                        </button>
-
-                                        <div class="drop-down">
-                                            <ul class="drop-down__list">
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="today">
-                                                        Сегодня
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="yesterday">
-                                                        Вчера
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="7">
-                                                        Последние 7 дней
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="30">
-                                                        Последние 30 дней
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="month">
-                                                        Текущий месяц
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="lastmonth">
-                                                        Прошлый месяц
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="7">
-                                                        Диапазон времени
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="calendare__buttons-wrapper">
-                                        <button class="calendare__cancel-btn">
-                                            Отмена
-                                        </button>
-
-                                        <button class="calendare__save-btn">
-                                            Применить
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="statistic-filter__input-wrapper">
-                            <div class="input-group input-group_date">
-                                <h4 class="input-group__title">
-                                    Время завершения отправки:
-                                </h4>
-                                <input type="text" disabled class="input input-group__input input-group__input_date">
-                            </div>
-
-                            <div class="calendare">
-                                <div class="calendare__section">
-                                    <header class="calendare__header">
-                                        <button class="calendare__prev-btn"></button>
-
-                                        <h4 class="calendare__current-month" data-date="2024.11">
-                                            Декабрь 2023
-                                        </h4>
-
-                                        <button class="calendare__next-btn"></button>
-                                    </header>
-
-                                    <table class="calendare__table" cellspacing="0">
-                                        <thead class="calendare__table-header">
-                                            <tr class="calendare__table-row">
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Пн
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Вт
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Ср
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Чт
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Пт
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Сб
-                                                </th>
-                                                <th class="calendare__cell calendare__cell_title">
-                                                    Вс
-                                                </th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody class="calendare__table-body">
-                                        </tbody>
-                                    </table>
-
-                                    <div class="calendare__select-wrapper">
-                                        <button class="calendare__select-diapason">
-                                            Выбран диапазон: 05.08.24 - 18.08.24
-                                        </button>
-
-                                        <div class="drop-down">
-                                            <ul class="drop-down__list">
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="today">
-                                                        Сегодня
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="yesterday">
-                                                        Вчера
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="7">
-                                                        Последние 7 дней
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="30">
-                                                        Последние 30 дней
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="month">
-                                                        Текущий месяц
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="lastmonth">
-                                                        Прошлый месяц
-                                                    </button>
-                                                </li>
-                                                <li class="drop-down__list-item">
-                                                    <button class="drop-down__btn" data-diapason="7">
-                                                        Диапазон времени
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="calendare__buttons-wrapper">
-                                        <button class="calendare__cancel-btn">
-                                            Отмена
-                                        </button>
-
-                                        <button class="calendare__save-btn">
-                                            Применить
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <h4 class="input-group__title">
-                                Профиль отправки:
-                            </h4>
-                            <input type="hidden" class="input-group__value">
-                            <button class="input-group__drop-down-btn">
-                                Выберите профиль
-                            
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
-                                </svg>
-                            </button>
-                            <div class="i-drop-down">
-                                <ul class="i-drop-down__list">
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 1
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 2
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 3
-                                        </button>
-                                    </li>
-                                    <li class="i-drop-down__list-item">
-                                        <button class="i-drop-down__btn">
-                                            Значение 4
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="modal__send-btn-wrapper">
-                            <button data-modal="main" type="submit" class="modal__test-send-btn">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.5 3.75H2.5C2.33424 3.75 2.17527 3.81585 2.05806 3.93306C1.94085 4.05027 1.875 4.20924 1.875 4.375V15C1.875 15.3315 2.0067 15.6495 2.24112 15.8839C2.47554 16.1183 2.79348 16.25 3.125 16.25H16.875C17.2065 16.25 17.5245 16.1183 17.7589 15.8839C17.9933 15.6495 18.125 15.3315 18.125 15V4.375C18.125 4.20924 18.0592 4.05027 17.9419 3.93306C17.8247 3.81585 17.6658 3.75 17.5 3.75ZM10 10.4023L4.10703 5H15.893L10 10.4023ZM7.71172 10L3.125 14.2039V5.79609L7.71172 10ZM8.63672 10.8477L9.57422 11.7109C9.68953 11.8168 9.84035 11.8755 9.99687 11.8755C10.1534 11.8755 10.3042 11.8168 10.4195 11.7109L11.357 10.8477L15.8883 15H4.10703L8.63672 10.8477ZM12.2883 10L16.875 5.79531V14.2047L12.2883 10Z" fill="#FF7800" />
-                                </svg>
-
-                                Отправить тестовое сообщение
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="modal__input-wrapper modal__input-wrapper_company">
-                        <div class="input-group">
-                            <div class="input-group__title-wrapper">
-                                <h4 class="input-group__title">
-                                    Группы:
-                                </h4>
-
-                                <div class="notify-wrapper">
-                                    <button class="input-group__notify notify-btn">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16ZM9.6 5.6C9.6 5.824 9.432 6.24 9.264 6.4L8 7.664C7.544 8.128 7.2 8.944 7.2 9.6V10.4H8.8V9.6C8.8 9.368 8.968 8.96 9.136 8.8L10.4 7.536C10.856 7.072 11.2 6.256 11.2 5.6C11.2 4.75131 10.8629 3.93737 10.2627 3.33726C9.66263 2.73714 8.84869 2.4 8 2.4C7.15131 2.4 6.33737 2.73714 5.73726 3.33726C5.13714 3.93737 4.8 4.75131 4.8 5.6H6.4C6.4 5.17565 6.56857 4.76869 6.86863 4.46863C7.16869 4.16857 7.57565 4 8 4C8.42435 4 8.83131 4.16857 9.13137 4.46863C9.43143 4.76869 9.6 5.17565 9.6 5.6ZM7.2 12V13.6H8.8V12H7.2Z" fill="#9CA9AF" />
-                                        </svg>
-                                    </button>
-
-                                    <div class="notify notify_company">
-                                        <p class="notify__text">
-                                            Несколько групп можно выбрать с зажатой клавишей Ctrl
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal__company-input input input-group__input">
-                                <div class="modal__company">
-                                    <span class="modal__company-text">
-                                        Юра тест
-                                    </span>
-
-                                    <button class="modal__company-delete">
-                                        <svg width="8" height="8" viewBox="0 0 8 8" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7.77296 6.97699C7.87863 7.08266 7.938 7.22599 7.938 7.37543C7.938 7.52487 7.87863 7.66819 7.77296 7.77387C7.66729 7.87954 7.52397 7.9389 7.37453 7.9389C7.22508 7.93891 7.08176 7.87954 6.97609 7.77387L3.99999 4.79683L1.02296 7.77293C0.917291 7.8786 0.773969 7.93797 0.624526 7.93797C0.475083 7.93797 0.331761 7.8786 0.226089 7.77293C0.120417 7.66726 0.0610504 7.52393 0.0610504 7.37449C0.0610504 7.22505 0.120417 7.08173 0.226089 6.97605L3.20312 3.99996L0.227026 1.02293C0.121354 0.917256 0.0619879 0.773934 0.0619879 0.624491C0.0619879 0.475048 0.121354 0.331726 0.227026 0.226054C0.332698 0.120382 0.47602 0.0610155 0.625463 0.0610155C0.774907 0.0610155 0.918229 0.120382 1.0239 0.226054L3.99999 3.20309L6.97703 0.225585C7.0827 0.119913 7.22602 0.0605469 7.37546 0.0605469C7.52491 0.0605469 7.66823 0.119913 7.7739 0.225585C7.87957 0.331257 7.93894 0.474579 7.93894 0.624022C7.93894 0.773466 7.87957 0.916788 7.7739 1.02246L4.79687 3.99996L7.77296 6.97699Z" fill="inherit" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="search-element">
-                            <input type="text" class="input search-element__input">
-
-                            <ul class="search-element__list">
-                                <li class="search-element__item">
-                                    <button class="search-element__btn">
-                                        TestCompany_1
+                    <div class="input-group">
+                        <h4 class="input-group__title">
+                            Шаблон письма:
+                        </h4>
+                        <input type="hidden" class="input-group__value">
+                        <button class="input-group__drop-down-btn input-group__drop-down-btn_changed">
+                            1. Обновление системы HelpDesk.
+                        
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
+                            </svg>
+                        </button>
+                        <div class="i-drop-down">
+                            <ul class="i-drop-down__list">
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 1
                                     </button>
                                 </li>
-                                <li class="search-element__item">
-                                    <button class="search-element__btn">
-                                        TestCompany2
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 2
                                     </button>
                                 </li>
-                                <li class="search-element__item">
-                                    <button class="search-element__btn">
-                                        Никита тест
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 3
                                     </button>
                                 </li>
-                                <li class="search-element__item">
-                                    <button class="search-element__btn">
-                                        Copy of Никита тест
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 4
                                     </button>
-                                </li>
-                                <li class="search-element__item search-element__item_not-found none">
-                                    Ничего не найдено...
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <button data-modal="success-note" type="submit" class="modal__orange-btn" data-modal="main">
-                        Применить
-                    </button>
-                </form>
+                    <div class="input-group">
+                        <h4 class="input-group__title">
+                            Лендинг:
+                        </h4>
+                        <input type="hidden" class="input-group__value">
+                        <button class="input-group__drop-down-btn">
+                            Выберите лендинг
+                        
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
+                            </svg>
+                        </button>
+                        <div class="i-drop-down">
+                            <ul class="i-drop-down__list">
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 1
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 2
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 3
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 4
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group__title-wrapper">
+                            <h4 class="input-group__title">
+                                Домен: 
+                            </h4>
+
+                            <div class="notify-wrapper">
+                                <button class="input-group__notify notify-btn">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16ZM9.6 5.6C9.6 5.824 9.432 6.24 9.264 6.4L8 7.664C7.544 8.128 7.2 8.944 7.2 9.6V10.4H8.8V9.6C8.8 9.368 8.968 8.96 9.136 8.8L10.4 7.536C10.856 7.072 11.2 6.256 11.2 5.6C11.2 4.75131 10.8629 3.93737 10.2627 3.33726C9.66263 2.73714 8.84869 2.4 8 2.4C7.15131 2.4 6.33737 2.73714 5.73726 3.33726C5.13714 3.93737 4.8 4.75131 4.8 5.6H6.4C6.4 5.17565 6.56857 4.76869 6.86863 4.46863C7.16869 4.16857 7.57565 4 8 4C8.42435 4 8.83131 4.16857 9.13137 4.46863C9.43143 4.76869 9.6 5.17565 9.6 5.6ZM7.2 12V13.6H8.8V12H7.2Z" fill="#9CA9AF" />
+                                    </svg>
+                                </button>
+
+                                <div class="notify notify_company">
+                                    <p class="notify__text">
+                                        Местоположение прослушивателя Gophish (должно быть доступно целевым объектам!)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" class="input-group__value">
+                        <button class="input-group__drop-down-btn">
+                            Выберите домен
+                        
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
+                            </svg>
+                        </button>
+                        <div class="i-drop-down">
+                            <ul class="i-drop-down__list">
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 1
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 2
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 3
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 4
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="modal__section-title">
+                    Параметры запуска
+                </h4>
+
+                <div class="modal__inputs-wrapper modal__inputs-wrapper_two-column">
+                    <div class="input-group">
+                        <h4 class="input-group__title">
+                            Способ отправки:
+                        </h4>
+                        <input type="hidden" class="input-group__value">
+                        <button class="input-group__drop-down-btn input-group__drop-down-btn_changed">
+                            Отправить все письма сейчас
+                        
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
+                            </svg>
+                        </button>
+                        <div class="i-drop-down">
+                            <ul class="i-drop-down__list">
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Отправить все письма сейчас
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Отправка всем сразу
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Отправка случайным образом
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group__title-wrapper">
+                            <h4 class="input-group__title">
+                                Пакетная отправка:
+                            </h4>
+
+                            <div class="notify-wrapper">
+                                <button class="input-group__notify notify-btn">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16ZM9.6 5.6C9.6 5.824 9.432 6.24 9.264 6.4L8 7.664C7.544 8.128 7.2 8.944 7.2 9.6V10.4H8.8V9.6C8.8 9.368 8.968 8.96 9.136 8.8L10.4 7.536C10.856 7.072 11.2 6.256 11.2 5.6C11.2 4.75131 10.8629 3.93737 10.2627 3.33726C9.66263 2.73714 8.84869 2.4 8 2.4C7.15131 2.4 6.33737 2.73714 5.73726 3.33726C5.13714 3.93737 4.8 4.75131 4.8 5.6H6.4C6.4 5.17565 6.56857 4.76869 6.86863 4.46863C7.16869 4.16857 7.57565 4 8 4C8.42435 4 8.83131 4.16857 9.13137 4.46863C9.43143 4.76869 9.6 5.17565 9.6 5.6ZM7.2 12V13.6H8.8V12H7.2Z" fill="#9CA9AF" />
+                                    </svg>
+                                </button>
+
+                                <div class="notify notify_company">
+                                    <p class="notify__text">
+                                        Рекомендуемые значение по 100 шт. каждые 5 сек.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group__inputs">
+                            <div class="input-group__count">
+                                <span class="input-group__count-text">
+                                    по
+                                </span>
+
+                                <input type="text" value="100" class="input-group__count-input">
+
+                                <span class="input-group__count-text">
+                                    шт.
+                                </span>
+                            </div>
+
+                            <div class="input-group__count">
+                                <span class="input-group__count-text">
+                                    Каждые
+                                </span>
+
+                                <input type="text" value="5" class="input-group__count-input">
+
+                                <span class="input-group__count-text">
+                                    сек.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="statistic-filter__input-wrapper click-pop-up">
+                        <div class="input-group input-group_grey input-group_date">
+                            <h4 class="input-group__title">
+                                Время отправки:
+                            </h4>
+                            <input type="text" class="input input-group__input input-group__input_date">
+                        </div>
+
+                        <div class="calendare hidden" data-is-diapason="true">
+                            <div class="calendare__section">
+                                <header class="calendare__header">
+                                    <button class="calendare__prev-btn"></button>
+
+                                    <h4 class="calendare__current-month" data-date="2024.11">
+                                        Декабрь 2023
+                                    </h4>
+
+                                    <button class="calendare__next-btn"></button>
+                                </header>
+
+                                <table class="calendare__table" cellspacing="0">
+                                    <thead class="calendare__table-header">
+                                        <tr class="calendare__table-row">
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Пн
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Вт
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Ср
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Чт
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Пт
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Сб
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Вс
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody class="calendare__table-body">
+                                    </tbody>
+                                </table>
+
+                                <div class="calendare__select-wrapper">
+                                    <button class="calendare__select-diapason">
+                                        Выбран диапазон: 05.08.24 - 18.08.24
+                                    </button>
+
+                                    <div class="drop-down">
+                                        <ul class="drop-down__list">
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="today">
+                                                    Сегодня
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="yesterday">
+                                                    Вчера
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="7">
+                                                    Последние 7 дней
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="30">
+                                                    Последние 30 дней
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="month">
+                                                    Текущий месяц
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="lastmonth">
+                                                    Прошлый месяц
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="7">
+                                                    Диапазон времени
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="calendare__buttons-wrapper">
+                                    <button class="calendare__cancel-btn">
+                                        Отмена
+                                    </button>
+
+                                    <button class="calendare__save-btn">
+                                        Применить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="statistic-filter__input-wrapper click-pop-up">
+                        <div class="input-group input-group_date">
+                            <h4 class="input-group__title">
+                                Время завершения отправки:
+                            </h4>
+                            <input type="text" class="input input-group__input input-group__input_date">
+                        </div>
+
+                        <div class="calendare hidden" data-is-diapason="true">
+                            <div class="calendare__section">
+                                <header class="calendare__header">
+                                    <button class="calendare__prev-btn"></button>
+
+                                    <h4 class="calendare__current-month" data-date="2024.11">
+                                        Декабрь 2024
+                                    </h4>
+
+                                    <button class="calendare__next-btn"></button>
+                                </header>
+
+                                <table class="calendare__table" cellspacing="0">
+                                    <thead class="calendare__table-header">
+                                        <tr class="calendare__table-row">
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Пн
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Вт
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Ср
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Чт
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Пт
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Сб
+                                            </th>
+                                            <th class="calendare__cell calendare__cell_title">
+                                                Вс
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody class="calendare__table-body">
+                                    </tbody>
+                                </table>
+
+                                <div class="calendare__select-wrapper">
+                                    <button class="calendare__select-diapason">
+                                        Выбран диапазон: 05.08.24 - 18.08.24
+                                    </button>
+
+                                    <div class="drop-down">
+                                        <ul class="drop-down__list">
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="today">
+                                                    Сегодня
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="yesterday">
+                                                    Вчера
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="7">
+                                                    Последние 7 дней
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="30">
+                                                    Последние 30 дней
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="month">
+                                                    Текущий месяц
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="lastmonth">
+                                                    Прошлый месяц
+                                                </button>
+                                            </li>
+                                            <li class="drop-down__list-item">
+                                                <button class="drop-down__btn" data-diapason="7">
+                                                    Диапазон времени
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="calendare__buttons-wrapper">
+                                    <button class="calendare__cancel-btn">
+                                        Отмена
+                                    </button>
+
+                                    <button class="calendare__save-btn">
+                                        Применить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <h4 class="input-group__title">
+                            Профиль отправки:
+                        </h4>
+                        <input type="hidden" class="input-group__value">
+                        <button class="input-group__drop-down-btn">
+                            Выберите профиль
+                        
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7.77995 9.71691C7.63905 9.57601 7.44796 9.49686 7.2487 9.49686C7.04944 9.49686 6.85835 9.57601 6.71745 9.71691C6.57655 9.85781 6.4974 10.0489 6.4974 10.2482C6.4974 10.4474 6.57655 10.6385 6.71745 10.7794L11.7174 15.7794C11.7871 15.8493 11.8699 15.9048 11.9611 15.9427C12.0522 15.9805 12.15 16 12.2487 16C12.3474 16 12.4451 15.9805 12.5363 15.9427C12.6275 15.9048 12.7103 15.8493 12.7799 15.7794L17.7799 10.7794C17.9208 10.6385 18 10.4474 18 10.2482C18 10.0489 17.9208 9.85781 17.7799 9.71691C17.6391 9.57601 17.448 9.49686 17.2487 9.49686C17.0494 9.49686 16.8583 9.57601 16.7174 9.71691L12.2493 14.185L7.77995 9.71691Z" fill="#677075" />
+                            </svg>
+                        </button>
+                        <div class="i-drop-down">
+                            <ul class="i-drop-down__list">
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 1
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 2
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 3
+                                    </button>
+                                </li>
+                                <li class="i-drop-down__list-item">
+                                    <button class="i-drop-down__btn">
+                                        Значение 4
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="modal__send-btn-wrapper">
+                        <button data-modal="main" type="submit" class="modal__test-send-btn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.5 3.75H2.5C2.33424 3.75 2.17527 3.81585 2.05806 3.93306C1.94085 4.05027 1.875 4.20924 1.875 4.375V15C1.875 15.3315 2.0067 15.6495 2.24112 15.8839C2.47554 16.1183 2.79348 16.25 3.125 16.25H16.875C17.2065 16.25 17.5245 16.1183 17.7589 15.8839C17.9933 15.6495 18.125 15.3315 18.125 15V4.375C18.125 4.20924 18.0592 4.05027 17.9419 3.93306C17.8247 3.81585 17.6658 3.75 17.5 3.75ZM10 10.4023L4.10703 5H15.893L10 10.4023ZM7.71172 10L3.125 14.2039V5.79609L7.71172 10ZM8.63672 10.8477L9.57422 11.7109C9.68953 11.8168 9.84035 11.8755 9.99687 11.8755C10.1534 11.8755 10.3042 11.8168 10.4195 11.7109L11.357 10.8477L15.8883 15H4.10703L8.63672 10.8477ZM12.2883 10L16.875 5.79531V14.2047L12.2883 10Z" fill="#FF7800" />
+                            </svg>
+
+                            Отправить тестовое сообщение
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal__input-wrapper modal__input-wrapper_company click-pop-up">
+                    <div class="input-group">
+                        <div class="input-group__title-wrapper">
+                            <h4 class="input-group__title">
+                                Группы:
+                            </h4>
+
+                            <div class="notify-wrapper">
+                                <button class="input-group__notify notify-btn">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16ZM9.6 5.6C9.6 5.824 9.432 6.24 9.264 6.4L8 7.664C7.544 8.128 7.2 8.944 7.2 9.6V10.4H8.8V9.6C8.8 9.368 8.968 8.96 9.136 8.8L10.4 7.536C10.856 7.072 11.2 6.256 11.2 5.6C11.2 4.75131 10.8629 3.93737 10.2627 3.33726C9.66263 2.73714 8.84869 2.4 8 2.4C7.15131 2.4 6.33737 2.73714 5.73726 3.33726C5.13714 3.93737 4.8 4.75131 4.8 5.6H6.4C6.4 5.17565 6.56857 4.76869 6.86863 4.46863C7.16869 4.16857 7.57565 4 8 4C8.42435 4 8.83131 4.16857 9.13137 4.46863C9.43143 4.76869 9.6 5.17565 9.6 5.6ZM7.2 12V13.6H8.8V12H7.2Z" fill="#9CA9AF" />
+                                    </svg>
+                                </button>
+
+                                <div class="notify notify_company">
+                                    <p class="notify__text">
+                                        Несколько групп можно выбрать с зажатой клавишей Ctrl
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__company-input input input-group__input">
+                            <div class="modal__company">
+                                <span class="modal__company-text">
+                                    Юра тест
+                                </span>
+
+                                <button class="modal__company-delete">
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.77296 6.97699C7.87863 7.08266 7.938 7.22599 7.938 7.37543C7.938 7.52487 7.87863 7.66819 7.77296 7.77387C7.66729 7.87954 7.52397 7.9389 7.37453 7.9389C7.22508 7.93891 7.08176 7.87954 6.97609 7.77387L3.99999 4.79683L1.02296 7.77293C0.917291 7.8786 0.773969 7.93797 0.624526 7.93797C0.475083 7.93797 0.331761 7.8786 0.226089 7.77293C0.120417 7.66726 0.0610504 7.52393 0.0610504 7.37449C0.0610504 7.22505 0.120417 7.08173 0.226089 6.97605L3.20312 3.99996L0.227026 1.02293C0.121354 0.917256 0.0619879 0.773934 0.0619879 0.624491C0.0619879 0.475048 0.121354 0.331726 0.227026 0.226054C0.332698 0.120382 0.47602 0.0610155 0.625463 0.0610155C0.774907 0.0610155 0.918229 0.120382 1.0239 0.226054L3.99999 3.20309L6.97703 0.225585C7.0827 0.119913 7.22602 0.0605469 7.37546 0.0605469C7.52491 0.0605469 7.66823 0.119913 7.7739 0.225585C7.87957 0.331257 7.93894 0.474579 7.93894 0.624022C7.93894 0.773466 7.87957 0.916788 7.7739 1.02246L4.79687 3.99996L7.77296 6.97699Z" fill="inherit" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search-element hidden">
+                        <input type="text" class="input search-element__input">
+
+                        <ul class="search-element__list">
+                            <li class="search-element__item">
+                                <button class="search-element__btn">
+                                    TestCompany_1
+                                </button>
+                            </li>
+                            <li class="search-element__item">
+                                <button class="search-element__btn">
+                                    TestCompany2
+                                </button>
+                            </li>
+                            <li class="search-element__item">
+                                <button class="search-element__btn">
+                                    Никита тест
+                                </button>
+                            </li>
+                            <li class="search-element__item">
+                                <button class="search-element__btn">
+                                    Copy of Никита тест
+                                </button>
+                            </li>
+                            <li class="search-element__item search-element__item_not-found none">
+                                Ничего не найдено...
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button data-modal="success-note" type="submit" class="modal__orange-btn" data-modal="main">
+                    Применить
+                </button>
 
             </div>
         </div>

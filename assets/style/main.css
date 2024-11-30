@@ -194,8 +194,8 @@ a:hover, button:hover {
 }
 
 .hidden {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .none {
@@ -518,8 +518,8 @@ a:hover, button:hover {
 .new-group__input-wrapper {
   position: relative;
 }
-.modal__input-wrapper_company:hover > .search-element,
-.new-group__input-wrapper_company:hover > .search-element {
+.modal__input-wrapper_company:hover:not(.click-pop-up) > .search-element,
+.new-group__input-wrapper_company:hover:not(.click-pop-up) > .search-element {
   opacity: 1;
   visibility: visible;
 }
@@ -1022,8 +1022,52 @@ a:hover, button:hover {
   max-height: 100%;
   height: 35.69rem;
 }
+.upload_narrow .upload-field__mini-title {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 125%;
+}
 .upload_narrow .upload-field__label {
   gap: 1.25rem;
+}
+.upload_narrow .upload-field__label_uploaded {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 0.5rem;
+}
+.upload_narrow .upload-field__label_edit {
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.upload_narrow .upload-field__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+.upload_edit .upload-field:hover {
+  opacity: 1;
+}
+.upload_edit .upload-field__label_uploaded {
+  padding: 0;
+  border: none;
+  outline: none;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .statistic-filter .modal__wrapper {
@@ -1032,7 +1076,7 @@ a:hover, button:hover {
 .statistic-filter__input-wrapper {
   position: relative;
 }
-.statistic-filter__input-wrapper:hover .calendare {
+.statistic-filter__input-wrapper:not(.click-pop-up):hover .calendare {
   opacity: 1;
   visibility: visible;
 }
@@ -1120,6 +1164,7 @@ a:hover, button:hover {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  cursor: pointer;
 }
 .input-group__input_date:disabled, .input-group__drop-down-btn_date:disabled, .input-group__count_date:disabled, .input-group__textarea_date:disabled {
   background: #FFFFFF;
@@ -1292,7 +1337,11 @@ a:hover, button:hover {
       -ms-flex-align: center;
           align-items: center;
 }
-.notify-wrapper:hover .notify {
+.notify-wrapper:not(.click-pop-up):hover .notify {
+  visibility: visible;
+  opacity: 1;
+}
+.notify-wrapper.click-pop-up .notify {
   visibility: visible;
   opacity: 1;
 }
@@ -1708,6 +1757,11 @@ a:hover, button:hover {
      object-position: center;
 }
 
+.click-pop-up .input-group + * {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media all and (max-width: 900px) {
   .modal__inputs-wrapper_two-column {
     -ms-grid-columns: 1fr;
@@ -2006,6 +2060,13 @@ a:hover, button:hover {
   background-image: url("../images/menu-icon.svg");
   background-size: 100%;
   background-repeat: no-repeat;
+}
+.side-panel__link-item_drop-down > .side-panel__link_open::before {
+  content: "";
+  -webkit-transform: rotate(180deg) translate(-0.625rem, -50%);
+          transform: rotate(180deg) translate(-0.625rem, -50%);
+  -webkit-transform-origin: -50% 0;
+          transform-origin: -50% 0;
 }
 .side-panel__link {
   display: -webkit-box;
@@ -2375,6 +2436,7 @@ a:hover, button:hover {
           box-shadow: 0 8px 15px 0 rgba(115, 146, 193, 0.05);
   background: #FFFFFF;
   padding: 1.875rem 0.75rem;
+  position: relative;
 }
 .latest__content_tabs {
   border-radius: 0 0.75rem 0.75rem 0.75rem;
@@ -2466,6 +2528,9 @@ a:hover, button:hover {
   background: #F8FAFC;
   padding: 1rem;
   border-radius: 0.75rem;
+  z-index: 1;
+  position: absolute;
+  width: calc(100% - 1.5rem);
 }
 .latest .row-description_table {
   padding: 0.5rem 1rem 0.75rem 1rem;
@@ -2846,11 +2911,12 @@ a:hover, button:hover {
   gap: 0.5rem;
 }
 .latest__edit-input {
-  width: 100%;
+  width: calc(100% - 1rem);
   border-bottom: 1px solid #DDE5EC;
   font-size: 0.88rem;
   line-height: 171%;
   background: none;
+  margin-right: 1rem;
 }
 .latest__drop-down-btn {
   display: -webkit-box;
@@ -2860,6 +2926,16 @@ a:hover, button:hover {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.375rem;
+}
+.latest__drop-down-btn svg {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.latest__drop-down-btn_active svg {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 .latest__rejected {
   border-radius: 1.25rem;
@@ -3342,6 +3418,8 @@ a:hover, button:hover {
   .latest__content {
     max-width: 100%;
     overflow: auto;
+    position: relative;
+    z-index: 2;
   }
   .latest__table {
     width: 62.5rem;
@@ -3613,6 +3691,13 @@ a:hover, button:hover {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
+}
+.lesson__like:hover {
+  opacity: 1;
+}
+.lesson__like_active svg {
+  fill: #FF7800;
+  stroke: #FF7800;
 }
 
 .progress {
@@ -4222,6 +4307,8 @@ a:hover, button:hover {
   font-size: 0.94rem;
   line-height: 130%;
   color: #9CA9AF;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 .tabs__btn_active {
   border-bottom: 2px solid #FF7800;
@@ -4544,6 +4631,16 @@ a:hover, button:hover {
           align-items: center;
   gap: 0.25rem;
 }
+.monitoring__toggle-btn svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.monitoring__toggle-btn_active svg {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
 .monitoring__full-info {
   max-width: 45rem;
   display: -webkit-box;
@@ -4683,8 +4780,6 @@ a:hover, button:hover {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 2;
-  opacity: 0;
-  visibility: hidden;
   position: absolute;
   bottom: calc(100% - 0.5rem);
   left: 0;
@@ -4757,13 +4852,15 @@ a:hover, button:hover {
 .calendare__cell_active-start {
   border-radius: 0.625rem 0rem 0rem 0.625rem;
   background: #FF7800;
+  color: #FFFFFF;
 }
 .calendare__cell_active-end {
   border-radius: 0rem 0.625rem 0.625rem 0rem;
   background: #FF7800;
+  color: #FFFFFF;
 }
 .calendare__cell_active {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 120, 0, 0.1);
 }
 .calendare__select-diapason {
   font-weight: 500;
@@ -4850,6 +4947,9 @@ a:hover, button:hover {
   font-weight: 500;
   font-size: 1rem;
   line-height: 150%;
+}
+.calendare .drop-down__btn_active {
+  color: #FF7800;
 }
 .calendare .drop-down__btn:hover {
   opacity: 1;

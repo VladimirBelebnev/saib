@@ -20,8 +20,6 @@
     display: flex;
     justify-content: center;
     z-index: 2;
-    opacity: 0;
-    visibility: hidden;
     position: absolute;
     bottom: calc(100% - 0.5rem);
     left: 0;
@@ -106,15 +104,17 @@
         &_active-start {
             border-radius: 0.625rem 0rem 0rem 0.625rem;
             background: $primaryColor;
+            color: $white;
         }
 
         &_active-end {
             border-radius: 0rem 0.625rem 0.625rem 0rem;
             background: $primaryColor;
+            color: $white;
         }
 
         &_active {
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(255, 120, 0, 0.1);
         }
     }
 
@@ -169,6 +169,10 @@
             font-weight: $medium;
             font-size: 1rem;
             line-height: 150%;
+
+            &_active {
+                color: $primaryColor;
+            }
 
             &:hover {
                 opacity: 1;

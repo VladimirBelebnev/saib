@@ -638,27 +638,27 @@
 
                 <div class="modal__edit-tab-section">
                     <div class="modal__edit-tab-buttons">
-                        <button class="modal__edit-tab-btn modal__edit-tab-btn_active">
+                        <button class="modal__edit-tab-btn modal__edit-tab-btn_active" data-tab="tab-1">
                             WYSIWYG
                         </button>
 
-                        <button class="modal__edit-tab-btn">
+                        <button class="modal__edit-tab-btn" data-tab="tab-2">
                             Текст
                         </button>
 
-                        <button class="modal__edit-tab-btn">
+                        <button class="modal__edit-tab-btn" data-tab="tab-3">
                             HTML
                         </button>
                     </div>
 
                     <div class="modal__edit-tabs">
-                        <div class="modal__w-wrapper">
+                        <div class="modal__w-wrapper" data-tab="tab-1">
                             <trix-editor></trix-editor>
                         </div>
 
-                        <textarea class="modal__edit-textarea none"></textarea>
+                        <textarea class="modal__edit-textarea none" data-tab="tab-2"></textarea>
 
-                        <div class="modal__w-wrapper none">
+                        <div class="modal__w-wrapper none" data-tab="tab-3">
                             <trix-editor></trix-editor>
                         </div>
                     </div>
