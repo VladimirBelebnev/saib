@@ -20,11 +20,11 @@
         width: 0;
         height: 0;
     }
-    
+
     ::-webkit-scrollbar-track {
         background-color: none;
     }
-    
+
     ::-webkit-scrollbar-thumb {
         box-shadow: none;
         border: none;
@@ -46,11 +46,11 @@
         ::-webkit-scrollbar {
             height: 1rem;
         }
-        
+
         ::-webkit-scrollbar-track {
             background-color: $white;
         }
-        
+
         ::-webkit-scrollbar-thumb {
             box-shadow: inset 0 0 100px $primaryColor;
             border: 2px solid $white;
@@ -100,7 +100,7 @@
         right: 2.75rem;
 
         svg {
-            transition: .5s;
+            transition: 0.5s;
         }
 
         &:hover {
@@ -160,14 +160,12 @@
         position: relative;
 
         &_company {
-
             &:hover:not(.click-pop-up) > .search-element {
                 opacity: 1;
                 visibility: visible;
             }
 
             .input-group {
-
                 &__input {
                     height: auto;
                     min-height: 3.25rem;
@@ -180,11 +178,11 @@
             width: 0;
             height: 0;
         }
-        
+
         ::-webkit-scrollbar-track {
             background-color: none;
         }
-        
+
         ::-webkit-scrollbar-thumb {
             box-shadow: none;
             border: none;
@@ -195,7 +193,7 @@
     .input {
         width: 100%;
         max-width: 100%;
-        transition: .5s;
+        transition: 0.5s;
 
         &::placeholder {
             color: $gray5;
@@ -273,7 +271,6 @@
     }
 
     .input-group {
-
         &_date {
             max-width: 17.5rem;
         }
@@ -392,7 +389,6 @@
 }
 
 .new-group {
-
     &__wrapper {
         max-width: 72.56rem;
         width: 100%;
@@ -420,7 +416,6 @@
 .modal-confirm-delete,
 .modal-confirm,
 .modal-input {
-
     .modal__wrapper {
         max-width: 31.4375rem;
         display: flex;
@@ -446,7 +441,7 @@
         outline: 1px solid $gray2;
         border-radius: 0.75rem;
         padding: 0.88rem 1.25rem;
-        transition: .5s;
+        transition: 0.5s;
 
         &::placeholder {
             color: $gray5;
@@ -475,7 +470,6 @@
 // Modal Input
 
 .modal-input {
-
     .modal__wrapper {
         max-width: 32.44rem;
         display: flex;
@@ -521,14 +515,13 @@
         max-width: 4.5rem !important;
         outline: 1px solid $gray2;
         border-radius: 0.75rem;
-        transition: .5s;
+        transition: 0.5s;
     }
 }
 
 // Success
 
 .success-modal {
-
     .modal__wrapper {
         max-width: 31.4375rem;
         display: flex;
@@ -545,7 +538,6 @@
 // Active Directory
 
 .active-directory {
-
     &__wrapper {
         max-width: 62.88rem;
     }
@@ -554,7 +546,6 @@
 // Upload
 
 .upload {
-
     &__wrapper {
         max-width: 41.25rem;
     }
@@ -576,7 +567,6 @@
     }
 
     &_narrow {
-
         .modal__wrapper {
             max-width: 36.25rem;
             max-height: 100%;
@@ -584,7 +574,6 @@
         }
 
         .upload-field {
-
             &__mini-title {
                 font-weight: $bold;
                 font-size: 1rem;
@@ -615,15 +604,12 @@
     }
 
     &_edit {
-        
         .upload-field {
-
             &:hover {
                 opacity: 1;
             }
 
             &__label {
-
                 &_uploaded {
                     padding: 0;
                     border: none;
@@ -640,7 +626,6 @@
 // Statistic Filter
 
 .statistic-filter {
-
     .modal__wrapper {
         max-width: 64.31rem;
     }
@@ -662,7 +647,6 @@
     position: relative;
 
     &:hover {
-
         .i-drop-down {
             opacity: 1;
             visibility: visible;
@@ -715,7 +699,7 @@
         font-size: 1rem;
         font-weight: $medium;
         line-height: 150%;
-        transition: .5s;
+        transition: 0.5s;
 
         &::placeholder {
             color: $gray5;
@@ -849,7 +833,8 @@
     opacity: 0;
     visibility: hidden;
     z-index: 1001;
-    transition: .5s;
+    overflow: auto;
+    transition: 0.5s;
 
     &__input {
         border: 1px solid $gray2;
@@ -881,7 +866,6 @@
     align-items: center;
 
     &:not(.click-pop-up):hover {
-
         .notify {
             visibility: visible;
             opacity: 1;
@@ -909,12 +893,17 @@
     border-radius: 0.75rem;
     padding: 0.88rem 0.5rem 0.88rem 1.25rem;
     box-shadow: 0 8px 15px 0 rgba(115, 146, 193, 0.05);
-    z-index: 2;
+    z-index: 1002;
     background: $white;
     width: 100%;
     visibility: hidden;
     opacity: 0;
-    transition: .5s;
+    transition: 0.5s;
+
+    &_top {
+        top: auto;
+        bottom: calc(100% - 0.75rem);
+    }
 
     &__list {
         display: flex;
@@ -946,7 +935,7 @@
     background: $white;
     opacity: 0;
     visibility: hidden;
-    transition: .5s;
+    transition: 0.5s;
 
     &::before {
         content: "";
@@ -1011,7 +1000,7 @@
 
 .upload-field {
     width: 100%;
-    transition: .5s;
+    transition: 0.5s;
 
     &__input {
         display: none;
@@ -1058,10 +1047,9 @@
     }
 }
 
-// New Company 
+// New Company
 
 .new-company {
-
     .modal__wrapper {
         max-height: 100%;
         max-width: 53.62rem;
@@ -1077,7 +1065,6 @@
     }
 
     .input-group {
-
         &_date {
             max-width: 100%;
         }
@@ -1091,7 +1078,6 @@
 // New Template
 
 .new-template {
-
     .modal__wrapper {
         max-width: 64.31rem;
         max-height: 100%;
@@ -1106,7 +1092,6 @@
 // Message Import
 
 .message-import {
-
     .modal__wrapper {
         max-width: 47.56rem;
         max-height: 100%;
@@ -1122,7 +1107,6 @@
 // Lending
 
 .lending {
-
     .modal__wrapper {
         max-width: 46.62rem;
         max-height: 100%;
@@ -1168,7 +1152,6 @@
 // Profile Modal
 
 .profile-modal {
-
     .modal__wrapper {
         max-width: 64.31rem;
         max-height: 100%;
@@ -1212,7 +1195,6 @@
 // Test Message
 
 .test-message {
-
     .modal__wrapper {
         max-width: 64.31rem;
         max-height: 100%;
@@ -1223,7 +1205,6 @@
 // New User
 
 .new-user {
-
     .modal__wrapper {
         max-width: 64.31rem;
         max-height: 100%;
@@ -1250,7 +1231,6 @@
 
 .target-lessons,
 .set-cert {
-
     .modal__wrapper {
         max-width: 53.62rem;
         max-height: 100%;
@@ -1274,7 +1254,6 @@
 // Set Cert
 
 .set-cert {
-
     .modal__wrapper {
         max-width: 53.62rem;
         max-height: 100%;
@@ -1293,7 +1272,6 @@
 // New Notify
 
 .new-notify {
-
     &__title {
         margin-bottom: 1.5rem;
     }
@@ -1306,7 +1284,6 @@
 // Letter Theme
 
 .letter-theme {
-
     .modal__wrapper {
         max-width: 46.38rem;
         max-height: 100%;
@@ -1314,7 +1291,6 @@
     }
 
     &_body {
-
         .modal__wrapper {
             max-width: 46.38rem;
             max-height: 100%;
@@ -1322,7 +1298,6 @@
         }
 
         .input-group {
-
             &__textarea {
                 height: 21.25rem;
             }
@@ -1349,9 +1324,7 @@
 // Preview Modal
 
 .preview-modal {
-    
     &_full {
-
         .modal__wrapper {
             max-width: 59.5rem;
             max-height: 100%;
@@ -1368,7 +1341,6 @@
 }
 
 .click-pop-up {
-
     .input-group + * {
         opacity: 1;
         visibility: visible;
@@ -1378,11 +1350,8 @@
 // Media Queries
 
 @media all and (max-width: 900px) {
-
     .modal {
-
         &__inputs-wrapper {
-    
             &_two-column {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -1394,7 +1363,6 @@
         }
 
         .input-group {
-
             &__inputs {
                 width: 100%;
                 flex-direction: column;
@@ -1411,7 +1379,6 @@
     }
 
     .modal-input {
-
         &__buttons-wrapper {
             width: 100%;
             flex-direction: column;
@@ -1428,7 +1395,6 @@
     }
 
     .profile-modal {
-
         &__buttons {
             width: 100%;
             gap: 0.75rem;
@@ -1446,22 +1412,18 @@
     }
 
     .new-user {
-
         &__inputs-row {
             flex-direction: column;
             gap: 1rem;
         }
     }
-
 }
 
 @media all and (max-width: 600px) {
-
     .modal {
         padding: 1rem;
 
         .input-group {
-
             &_date {
                 max-width: 100%;
             }
@@ -1483,20 +1445,16 @@
     }
 
     .tabs {
-
         .tabs__btn {
             font-size: 0.88rem;
             line-height: normal;
             padding: 1.25rem 0.5rem;
         }
     }
-
 }
 
 @media all and (max-width: 500px) {
-
     .modal {
-        
         &__wrapper {
             padding: 1.5rem;
         }
@@ -1506,5 +1464,4 @@
             right: 1.5rem;
         }
     }
-
 }

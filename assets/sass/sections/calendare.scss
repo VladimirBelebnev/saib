@@ -1,135 +1,195 @@
 // Calendare Styles
 
-%icon-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 1.5rem;
-    color: $gray4;
-}
+// %icon-btn {
+//     display: inline-flex;
+//     justify-content: center;
+//     align-items: center;
+//     text-align: center;
+//     vertical-align: middle;
+//     font-size: 1.5rem;
+//     color: $gray4;
+// }
 
-.calendare {
-    max-width: 20.69rem;
-    width: 20.69rem;
-    background: $white;
-    border-radius: 0.625rem;
-    box-shadow: 0px 4px 30px 0px rgba(26, 54, 108, 0.05);
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    z-index: 2;
-    position: absolute;
-    bottom: calc(100% - 0.5rem);
-    left: 0;
-    transition: .5s;
+// .calendare {
+//     max-width: 20.69rem;
+//     width: 20.69rem;
+//     background: $white;
+//     border-radius: 0.625rem;
+//     box-shadow: 0px 4px 30px 0px rgba(26, 54, 108, 0.05);
+//     padding: 1rem;
+//     display: flex;
+//     justify-content: center;
+//     z-index: 2;
+//     position: absolute;
+//     bottom: calc(100% - 0.5rem);
+//     left: 0;
+//     transition: .5s;
 
-    &__section,
-    &__table {
-        width: 100%;
-    }
+//     &__section,
+//     &__table {
+//         width: 100%;
+//     }
 
-    &_double {
-        max-width: 39.625rem;
-        width: 39.625rem;
+//     &_double {
+//         max-width: 39.625rem;
+//         width: 39.625rem;
 
-        .calendare__section {
+//         .calendare__section {
 
-            &:first-child {
-                padding-right: 1.5rem;
-            }
+//             &:first-child {
+//                 padding-right: 1.5rem;
+//             }
 
-            &:last-child {
-                border-left: 1px solid $gray1;
-                padding-left: 1.5rem;
-            }
-        }
+//             &:last-child {
+//                 border-left: 1px solid $gray1;
+//                 padding-left: 1.5rem;
+//             }
+//         }
 
-    }
+//     }
 
-    &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1rem;
-    }
+//     &__header {
+//         display: flex;
+//         align-items: center;
+//         justify-content: space-between;
+//         margin-bottom: 1rem;
+//     }
 
-    &__prev-btn,
-    &__next-btn {
-        @extend %icon-btn;
-        font-size: 1rem;
-        color: $gray2;
+//     &__prev-btn,
+//     &__next-btn {
+//         @extend %icon-btn;
+//         font-size: 1rem;
+//         color: $gray2;
 
-        &::before {
-            content: "";
-            display: inline-block;
-            background-size: 100%;
-            background-repeat: no-repeat;
-            height: 1rem;
-            width: 1rem;
-        }
-    }
+//         &::before {
+//             content: "";
+//             display: inline-block;
+//             background-size: 100%;
+//             background-repeat: no-repeat;
+//             height: 1rem;
+//             width: 1rem;
+//         }
+//     }
 
-    &__prev-btn::before {
-        background-image: url("../images/left-arrow.svg");
-    }
+//     &__prev-btn::before {
+//         background-image: url("../images/left-arrow.svg");
+//     }
 
-    &__next-btn::before {
-        background-image: url("../images/right-arrow.svg");
-    }
+//     &__next-btn::before {
+//         background-image: url("../images/right-arrow.svg");
+//     }
 
-    &__current-month {
-        font-size: 1rem;
-        font-weight: $semibold;
-        line-height: 2.25rem;
-    }
+//     &__current-month {
+//         font-size: 1rem;
+//         font-weight: $semibold;
+//         line-height: 2.25rem;
+//     }
 
-    &__cell {
-        padding: 0.25rem;
-        font-size: 0.88rem;
-        line-height: 171%;
-        text-align: center;
-        vertical-align: middle;
-        cursor: pointer;
+//     &__cell {
+//         padding: 0.25rem;
+//         font-size: 0.88rem;
+//         line-height: 171%;
+//         text-align: center;
+//         vertical-align: middle;
+//         cursor: pointer;
 
-        &_title {
-            font-weight: $semibold;
-        }
+//         &_title {
+//             font-weight: $semibold;
+//         }
 
-        &_out-month {
-            color: $gray5;
-        }
+//         &_out-month {
+//             color: $gray5;
+//         }
 
-        &_active-start {
-            border-radius: 0.625rem 0rem 0rem 0.625rem;
-            background: $primaryColor;
-            color: $white;
-        }
+//         &_active-start {
+//             border-radius: 0.625rem 0rem 0rem 0.625rem;
+//             background: $primaryColor;
+//             color: $white;
+//         }
 
-        &_active-end {
-            border-radius: 0rem 0.625rem 0.625rem 0rem;
-            background: $primaryColor;
-            color: $white;
-        }
+//         &_active-end {
+//             border-radius: 0rem 0.625rem 0.625rem 0rem;
+//             background: $primaryColor;
+//             color: $white;
+//         }
 
-        &_active {
-            background: rgba(255, 120, 0, 0.1);
-        }
-    }
+//         &_active {
+//             background: rgba(255, 120, 0, 0.1);
+//         }
+//     }
 
-    &__select-diapason {
-        font-weight: $medium;
-        font-size: 0.88rem;
-        line-height: 171%;
-        margin: 0.75rem 0;
-    }
+//     &__select-diapason {
+//         font-weight: $medium;
+//         font-size: 0.88rem;
+//         line-height: 171%;
+//         margin: 0.75rem 0;
+//     }
 
-    &__buttons-wrapper {
-        width: 100%;
-        display: flex;
-        gap: 0.75rem;
-    }
+//     &__buttons-wrapper {
+//         width: 100%;
+//         display: flex;
+//         gap: 0.75rem;
+//     }
+
+//     &__cancel-btn {
+//         width: 100%;
+//         @include btn($gray1, $white);
+//     }
+
+//     &__save-btn {
+//         width: 100%;
+//         @include btn($primaryColor, $white);
+//     }
+
+//     &__select-wrapper {
+//         position: relative;
+//     }
+
+//     .drop-down {
+//         width: 100%;
+//         border: 1px solid $gray2;
+//         border-radius: 0.75rem;
+//         padding: 0.88rem 1.25rem;
+//         opacity: 0;
+//         visibility: hidden;
+//         position: absolute;
+//         left: 0;
+//         bottom: 100%;
+//         z-index: 1;
+//         background: $white;
+//         transition: .5s;
+
+//         &__list {
+//             display: flex;
+//             flex-direction: column;
+//             gap: 0.75rem;
+//         }
+
+//         &__btn {
+//             font-weight: $medium;
+//             font-size: 1rem;
+//             line-height: 150%;
+
+//             &_active {
+//                 color: $primaryColor;
+//             }
+
+//             &:hover {
+//                 opacity: 1;
+//                 color: $primaryColor;
+//             }
+//         }
+//     }
+
+//     &__select-wrapper:hover .drop-down {
+//         opacity: 1;
+//         visibility: visible;
+//     }
+// }
+
+.vc {
+    width: 20.6875rem;
+    z-index: 1001;
 
     &__cancel-btn {
         width: 100%;
@@ -141,48 +201,117 @@
         @include btn($primaryColor, $white);
     }
 
-    &__select-wrapper {
+    &__buttons {
+        margin-top: 0.75rem;
+        display: flex;
+        gap: 0.75rem;
+    }
+}
+
+[data-vc-theme="light"] .vc-header__content,
+[data-vc-theme="light"] .vc-month,
+[data-vc-theme="light"] .vc-year,
+[data-vc-theme="light"] .vc-date[data-vc-date-holiday] .vc-date__btn,
+[data-vc-theme="light"] .vc-date[data-vc-date-weekend] .vc-date__btn {
+    color: $gray1;
+}
+
+[data-vc-theme="light"] .vc-week__day {
+    color: $gray1 !important;
+}
+
+[data-vc-theme="light"] .vc-date__btn {
+    font-size: 0.88rem;
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-selected] .vc-date__btn,
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-holiday][data-vc-date-selected]
+    .vc-date__btn,
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-weekend][data-vc-date-selected]
+    .vc-date__btn {
+    background: $secondaryColor !important;
+    color: $white !important;
+    // outline: 0.0625rem solid $secondaryColor;
+    position: relative;
+    z-index: 1;
+}
+
+[data-vc-theme="light"] .vc-date[data-vc-date-today] .vc-date__btn {
+    background: none;
+    font-weight: $normal;
+    color: $gray1;
+    outline: 0.0625rem solid $secondaryColor;
+    z-index: 1;
+}
+
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-selected="middle"][data-vc-date-month="prev"][data-vc-date-selected][data-vc-date-today]
+    .vc-date__btn {
+    outline: none;
+}
+
+[data-vc-theme="light"] .vc-date__btn {
+    &:hover {
+        background: none !important;
+        outline: 0.0625rem solid $secondaryColor;
         position: relative;
-    }
-
-    .drop-down {
-        width: 100%;
-        border: 1px solid $gray2;
-        border-radius: 0.75rem;
-        padding: 0.88rem 1.25rem;
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-        left: 0;
-        bottom: 100%;
         z-index: 1;
-        background: $white;
-        transition: .5s;
-
-        &__list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        &__btn {
-            font-weight: $medium;
-            font-size: 1rem;
-            line-height: 150%;
-
-            &_active {
-                color: $primaryColor;
-            }
-
-            &:hover {
-                opacity: 1;
-                color: $primaryColor;
-            }
-        }
+        color: $gray1 !important;
+        opacity: 1 !important;
     }
+}
 
-    &__select-wrapper:hover .drop-down {
-        opacity: 1;
-        visibility: visible;
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-holiday][data-vc-date-selected][data-vc-date-month="next"]
+    .vc-date__btn,
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-holiday][data-vc-date-selected][data-vc-date-month="prev"]
+    .vc-date__btn,
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-weekend][data-vc-date-selected][data-vc-date-month="next"]
+    .vc-date__btn,
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-weekend][data-vc-date-selected][data-vc-date-month="prev"]
+    .vc-date__btn {
+    background: none;
+}
+
+[data-vc-theme="light"]
+    .vc-date[data-vc-date-selected="middle"][data-vc-date-selected]
+    .vc-date__btn {
+    background: $orange5 !important;
+    color: $gray1 !important;
+    // outline-color: $orange5;
+}
+
+.vc__row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 0.75rem;
+}
+
+.vc__row-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.88rem;
+}
+
+.vc__result {
+    font-size: 0.88rem;
+    line-height: 140%;
+    margin-top: 0.75rem;
+}
+
+// Media Queries
+
+@media all and (max-width: 600px) {
+    .vc {
+        width: 17rem;
     }
 }
